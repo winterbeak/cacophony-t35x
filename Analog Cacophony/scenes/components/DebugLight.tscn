@@ -14,4 +14,5 @@ __meta__ = {
 
 [node name="RedTimer" type="Timer" parent="."]
 one_shot = true
+
 [connection signal="timeout" from="RedTimer" to="." method="_on_RedTimer_timeout"]
