@@ -3,6 +3,7 @@ extends "res://scripts/components/BaseComponent.gd"
 var current_light = 0
 
 func _ready() -> void:
+	# Note that Light1 is the rightmost light, and Light4 is the leftmost for this component
 	lights = [$Light1, $Light2, $Light3, $Light4]
 
 func start() -> void:
