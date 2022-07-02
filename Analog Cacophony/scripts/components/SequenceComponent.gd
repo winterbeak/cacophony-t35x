@@ -1,6 +1,5 @@
 extends "res://scripts/components/BaseComponent.gd"
 
-var inputs = "poiu"
 var current_light = 0
 
 func _ready() -> void:
@@ -11,8 +10,8 @@ func start() -> void:
 	current_light = 0
 
 func on_key_press(key: String) -> void:
-	for i in range(len(inputs)):
-		if key == inputs[i]:
+	for i in range(len(lights)):
+		if key == lights[i].key:
 			if current_light == i:
 				next_light()
 			else:

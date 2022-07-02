@@ -23,6 +23,12 @@ func turn_red() -> void:
 	color_rect.color = RED_COLOR
 	red_timer.start(RED_TIME)
 
+func press() -> void:
+	pass
+
+func release() -> void:
+	pass
+
 # Called when the timer runs out.
 func _on_RedTimer_timeout():
 	turn_off()
