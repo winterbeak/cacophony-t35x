@@ -1,6 +1,7 @@
 extends Node2D
 
-const VALID_KEYS: String = "qwertyuiopasdfghjkl;zxcvbnm,./"
+# Note that S replaces semicolon and ? replaces /
+const VALID_KEYS: String = "qwertyuiopasdfghjklSzxcvbnm,.?"
 
 signal fail
 var lights: Array = []
