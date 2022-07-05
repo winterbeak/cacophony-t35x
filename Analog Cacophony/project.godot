@@ -15,7 +15,17 @@ _global_script_class_icons={
 [application]
 
 config/name="Analog Cacophony"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Constants="*res://scripts/Constants.gd"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [input]
 
@@ -118,12 +128,7 @@ l={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":76,"unicode":0,"echo":false,"script":null)
  ]
 }
-;={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":59,"unicode":0,"echo":false,"script":null)
- ]
-}
-z={
+script:null)]}z={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":90,"unicode":0,"echo":false,"script":null)
  ]
@@ -176,4 +181,5 @@ m={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0.831373, 1, 1 )
 environment/default_environment="res://default_env.tres"
