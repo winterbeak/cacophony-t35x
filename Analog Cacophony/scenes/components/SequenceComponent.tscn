@@ -13,15 +13,12 @@ script = ExtResource( 1 )
 key = "u"
 
 [node name="Light3" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 85, 0 )
 key = "i"
 
 [node name="Light2" parent="." index="3" instance=ExtResource( 2 )]
-position = Vector2( 170, 0 )
 key = "o"
 
 [node name="Light1" parent="." index="4" instance=ExtResource( 2 )]
-position = Vector2( 255, 0 )
 key = "p"
 
 [node name="FillPlayer" type="AudioStreamPlayer2D" parent="." index="5"]
