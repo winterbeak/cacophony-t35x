@@ -32,7 +32,7 @@ func turn_off() -> void:
 	turn_color(OFF)
 
 # Turns the light red for an amount of time determined by RED_TIME.
-func turn_red() -> void:
+func flash_red() -> void:
 	turn_color(RED, RED_TIME)
 
 # Turns the light a color for a certain amount of time.
