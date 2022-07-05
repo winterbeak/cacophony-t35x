@@ -11,4 +11,4 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Grid" parent="." instance=ExtResource( 1 )]
-position = Vector2( 224, 267 )
+position = Vector2( 222, 267 )
