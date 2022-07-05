@@ -39,6 +39,10 @@ func turn_color(color_const: int, time: float = -1.0):
 	color = color_const
 	if time >= 0.0:
 		timer.start(time)
+		
+	# If another call to turn_color occurs before this one ends
+	else:
+		timer.stop()
 
 func press() -> void:
 	pressed = true
