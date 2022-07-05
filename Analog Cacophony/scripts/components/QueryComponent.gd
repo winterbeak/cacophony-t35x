@@ -18,7 +18,7 @@ func start() -> void:
 	
 	correct_light = rng.randi_range(0, 3)
 
-func press_light(light_num: int):
+func press_light(light_num: int) -> void:
 	lights[light_num].turn_off()
 	if pressed_lights[light_num]:
 		fail()
