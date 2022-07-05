@@ -18,6 +18,11 @@ config/name="Analog Cacophony"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 ui_end={
@@ -172,4 +177,5 @@ m={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0.831373, 1, 1 )
 environment/default_environment="res://default_env.tres"
