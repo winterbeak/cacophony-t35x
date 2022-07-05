@@ -10,5 +10,6 @@ export_presets.cfg
 .mono/
 data_*/
 
-# Desktop graphics folder
+# Desktop working files
 Graphics Working Files/
+Audio Working Files/
