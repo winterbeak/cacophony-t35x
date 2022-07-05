@@ -8,4 +8,6 @@ func _ready():
 func _process(delta):
 	if timer % 600 == 0:
 		$SequenceComponent.activate(3)
+	elif timer % 600 == 200:
+		$QueryComponent.activate(3)
 	timer += 1
