@@ -14,26 +14,24 @@ var tex_red_pressed: Texture = preload("res://assets/images/button_red_pressed.p
 onready var timer: Timer = $Timer
 onready var sprite: Sprite = $Sprite
 
-const OFF: int = 0
-const YELLOW: int = 1
-const RED: int = 2
+enum LIGHT_COLOR {OFF, YELLOW, RED}
 
 var pressed: bool = false
-var color: int = OFF
+var color: int = LIGHT_COLOR.OFF
 
 func _ready() -> void:
 	sprite.texture = tex_unpressed
 	turn_off()
 
 func turn_on() -> void:
-	turn_color(YELLOW)
+	turn_color(LIGHT_COLOR.YELLOW)
 
 func turn_off() -> void:
-	turn_color(OFF)
+	turn_color(LIGHT_COLOR.OFF)
 
 # Turns the light red for an amount of time determined by RED_TIME.
 func flash_red() -> void:
-	turn_color(RED, RED_TIME)
+	turn_color(LIGHT_COLOR.RED, RED_TIME)
 
 # Turns the light a color for a certain amount of time.
 # If the time is negative, the light is turned on indefinitely.
@@ -50,16 +48,16 @@ func release() -> void:
 
 func current_sprite() -> Texture:
 	if pressed:
-		if color == YELLOW:
+		if color == LIGHT_COLOR.YELLOW:
 			return tex_yellow_pressed
-		elif color == RED:
+		elif color == LIGHT_COLOR.RED:
 			return tex_red_pressed
 		else:
 			return tex_pressed
 	else:
-		if color == YELLOW:
+		if color == LIGHT_COLOR.YELLOW:
 			return tex_yellow_unpressed
-		elif color == RED:
+		elif color == LIGHT_COLOR.RED:
 			return tex_red_unpressed
 		else:
 			return tex_unpressed
