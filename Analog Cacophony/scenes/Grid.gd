@@ -10,7 +10,11 @@ func _ready():
 	# Row 2 position setting
 	$ScaleComponent.position.y = Constants.LIGHT_DISTANCE_VERT
 	$VolumeComponent.position.y = Constants.LIGHT_DISTANCE_VERT
+	$ParityComponent.position.y = Constants.LIGHT_DISTANCE_VERT
+	
 	$VolumeComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ
+	$ParityComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+	
 
 func _process(delta):
 	if timer % 600 == 0:
@@ -19,6 +23,8 @@ func _process(delta):
 		$ScaleComponent.activate($ScaleComponent.note_time * 5)
 	elif timer % 600 == 200:
 		$QueryComponent.activate(3)
+	elif timer % 600 == 300:
+		$ParityComponent.activate(3)
 	elif timer % 600 == 400:
 		$ChordComponent.activate(3)
 	elif timer % 600 == 500:
