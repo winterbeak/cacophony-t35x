@@ -1,5 +1,9 @@
 extends "res://scripts/components/BaseComponent.gd"
 
+# When you activate this component, the amount of "dead time" at the
+# start when the player cannot press anything is at most
+# BEEP_TIME * 5.
+
 var beep_count: int = 0
 var current_beep: int = 1
 
