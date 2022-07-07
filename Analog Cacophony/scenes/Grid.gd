@@ -22,8 +22,10 @@ func _ready():
 	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
 	
 	# Row 3 position setting
+	$DirectionComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
 	$AlternateComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
 	
+	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
 
 func _process(delta):
@@ -45,6 +47,8 @@ func _process(delta):
 		$AlternateComponent.activate(3)
 	elif timer % 600 == 400:
 		$ChordComponent.activate(3)
+	elif timer % 600 == 450:
+		$DirectionComponent.activate(3)
 	elif timer % 600 == 500:
 		$VolumeComponent.activate(5)
 	
