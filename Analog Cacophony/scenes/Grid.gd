@@ -13,9 +13,11 @@ func _ready():
 	$CountComponent.position.y = Constants.LIGHT_DISTANCE_VERT
 	$ParityComponent.position.y = Constants.LIGHT_DISTANCE_VERT
 	$NumberComponent.position.y = Constants.LIGHT_DISTANCE_VERT
+	$OnceComponent.position.y = Constants.LIGHT_DISTANCE_VERT
 	
 	$VolumeComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	$CountComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
+	$OnceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
 	$ParityComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
 
@@ -30,6 +32,8 @@ func _process(delta):
 		$NumberComponent.activate(5)
 	elif timer % 600 == 200:
 		$QueryComponent.activate(3)
+	elif timer % 600 == 250:
+		$OnceComponent.activate(3)
 	elif timer % 600 == 300:
 		$ParityComponent.activate(3)
 	elif timer % 600 == 400:
