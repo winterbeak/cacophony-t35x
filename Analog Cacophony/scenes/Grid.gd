@@ -10,15 +10,19 @@ func _ready():
 	# Row 2 position setting
 	$ScaleComponent.position.y = Constants.LIGHT_DISTANCE_VERT
 	$VolumeComponent.position.y = Constants.LIGHT_DISTANCE_VERT
+	$CountComponent.position.y = Constants.LIGHT_DISTANCE_VERT
 	$ParityComponent.position.y = Constants.LIGHT_DISTANCE_VERT
 	
 	$VolumeComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ
+	$CountComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$ParityComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 	
 
 func _process(delta):
 	if timer % 600 == 0:
 		$SequenceComponent.activate(3)
+	elif timer % 600 == 50:
+		$CountComponent.activate(5)
 	elif timer % 600 == 100:
 		$ScaleComponent.activate($ScaleComponent.note_time * 5)
 	elif timer % 600 == 200:
