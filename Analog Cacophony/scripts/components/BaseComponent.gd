@@ -31,7 +31,7 @@ func _on_Timer_timeout() -> void:
 func fail() -> void:
 	deactivate()
 	for light in lights:
-		light.turn_red()
+		light.flash_red()
 	emit_signal("fail")
 
 # Determines what to do with the pressed key.
@@ -39,7 +39,12 @@ func on_key_press(key: String) -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if activated:
-		for key in VALID_KEYS:
-			if Input.is_action_just_pressed(key):
-				on_key_press(key)
+	for light in lights:
+		if Input.is_action_just_pressed(light.key):
+			# If the component is activated, do something with the key
+			if activated:
+				on_key_press(light.key)
+			
+			# Otherwise, fail the component
+			else:
+				fail()

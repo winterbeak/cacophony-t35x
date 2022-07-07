@@ -11,30 +11,38 @@ var tex_yellow_pressed: Texture = preload("res://assets/images/button_yellow_pre
 var tex_red_unpressed: Texture = preload("res://assets/images/button_red_unpressed.png")
 var tex_red_pressed: Texture = preload("res://assets/images/button_red_pressed.png")
 
-onready var red_timer: Timer = $RedTimer
+onready var timer: Timer = $Timer
 onready var sprite: Sprite = $Sprite
 
-const OFF: int = 0
-const YELLOW: int = 1
-const RED: int = 2
+enum LIGHT_COLOR {OFF, YELLOW, RED}
 
 var pressed: bool = false
-var color: int = OFF
+var color: int = LIGHT_COLOR.OFF
 
 func _ready() -> void:
 	sprite.texture = tex_unpressed
 	turn_off()
 
 func turn_on() -> void:
-	color = YELLOW
+	turn_color(LIGHT_COLOR.YELLOW)
 
 func turn_off() -> void:
-	color = OFF
+	turn_color(LIGHT_COLOR.OFF)
 
 # Turns the light red for an amount of time determined by RED_TIME.
-func turn_red() -> void:
-	color = RED
-	red_timer.start(RED_TIME)
+func flash_red() -> void:
+	turn_color(LIGHT_COLOR.RED, RED_TIME)
+
+# Turns the light a color for a certain amount of time.
+# If the time is negative, the light is turned on indefinitely.
+func turn_color(color_const: int, time: float = -1.0):
+	color = color_const
+	if time >= 0.0:
+		timer.start(time)
+		
+	# If another call to turn_color occurs before this one ends
+	else:
+		timer.stop()
 
 func press() -> void:
 	pressed = true
@@ -44,16 +52,16 @@ func release() -> void:
 
 func current_sprite() -> Texture:
 	if pressed:
-		if color == YELLOW:
+		if color == LIGHT_COLOR.YELLOW:
 			return tex_yellow_pressed
-		elif color == RED:
+		elif color == LIGHT_COLOR.RED:
 			return tex_red_pressed
 		else:
 			return tex_pressed
 	else:
-		if color == YELLOW:
+		if color == LIGHT_COLOR.YELLOW:
 			return tex_yellow_unpressed
-		elif color == RED:
+		elif color == LIGHT_COLOR.RED:
 			return tex_red_unpressed
 		else:
 			return tex_unpressed
@@ -67,5 +75,5 @@ func _process(delta):
 	sprite.texture = current_sprite()
 
 # Called when the timer runs out.
-func _on_RedTimer_timeout():
+func _on_Timer_timeout():
 	turn_off()
