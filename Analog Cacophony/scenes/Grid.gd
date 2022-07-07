@@ -25,13 +25,17 @@ func _ready():
 	$MemoryComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
 	$DirectionComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
 	$AlternateComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
+	$CadenceComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
 	
 	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
+	$CadenceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 
 func _process(delta):
 	if timer % 600 == 0:
 		$SequenceComponent.activate(3)
+	elif timer % 600 == 25:
+		$CadenceComponent.activate(5)
 	elif timer % 600 == 50:
 		$CountComponent.activate(5)
 	elif timer % 600 == 100:

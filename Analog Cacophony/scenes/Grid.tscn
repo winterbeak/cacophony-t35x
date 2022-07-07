@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/components/SequenceComponent.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Grid.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/components/AlternateComponent.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/components/DirectionComponent.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/components/MemoryComponent.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/components/CadenceComponent.tscn" type="PackedScene" id=14]
 
 [node name="Grid" type="Node2D"]
 script = ExtResource( 2 )
@@ -40,3 +41,5 @@ script = ExtResource( 2 )
 [node name="DirectionComponent" parent="." instance=ExtResource( 12 )]
 
 [node name="AlternateComponent" parent="." instance=ExtResource( 11 )]
+
+[node name="CadenceComponent" parent="." instance=ExtResource( 14 )]
