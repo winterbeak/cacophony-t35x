@@ -20,6 +20,11 @@ func _ready():
 	$OnceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
 	$ParityComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
+	
+	# Row 3 position setting
+	$AlternateComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
+	
+	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
 
 func _process(delta):
 	if timer % 600 == 0:
@@ -36,6 +41,8 @@ func _process(delta):
 		$OnceComponent.activate(3)
 	elif timer % 600 == 300:
 		$ParityComponent.activate(3)
+	elif timer % 600 == 350:
+		$AlternateComponent.activate(3)
 	elif timer % 600 == 400:
 		$ChordComponent.activate(3)
 	elif timer % 600 == 500:
