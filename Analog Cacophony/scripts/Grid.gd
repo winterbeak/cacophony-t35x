@@ -1,5 +1,7 @@
 extends Node2D
 
+signal fail
+
 var timer = 0
 
 onready var rows = [
@@ -13,6 +15,10 @@ func _ready():
 	for row in rows:
 		for component in row:
 			components.append(component)
+	
+	# If any component fails, this scene emits the fail signal
+	for component in components:
+		component.connect_fail(self)
 	
 	# Row 1 position setting
 	$ChordComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
@@ -35,6 +41,9 @@ func _ready():
 	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
 	$CadenceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+
+func _on_component_fail():
+	emit_signal("fail")
 
 func _process(delta):
 	if timer % 600 == 0:

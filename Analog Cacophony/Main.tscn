@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Grid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/body.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ProgressBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=4]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 191, 156 )
@@ -12,3 +15,12 @@ centered = false
 
 [node name="Grid" parent="." instance=ExtResource( 1 )]
 position = Vector2( 222, 267 )
+
+[node name="ProgressBar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 229, 551 )
+
+[node name="WinTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="fail" from="Grid" to="." method="_on_Grid_fail"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_WinTimer_timeout"]
