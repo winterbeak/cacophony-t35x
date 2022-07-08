@@ -3,6 +3,7 @@ extends Node2D
 signal fail
 
 var timer = 0
+var started: bool = false
 
 onready var rows = [
 	[$QueryComponent, $ChordComponent, $SequenceComponent],
@@ -45,32 +46,36 @@ func _ready():
 func _on_component_fail():
 	emit_signal("fail")
 
+func start():
+	started = true
+
 func _process(delta):
-	if timer % 600 == 0:
-		$SequenceComponent.activate(3)
-	elif timer % 600 == 25:
-		$CadenceComponent.activate(5)
-	elif timer % 600 == 50:
-		$CountComponent.activate(5)
-	elif timer % 600 == 100:
-		$ScaleComponent.activate($ScaleComponent.note_time * 5)
-	elif timer % 600 == 150:
-		$NumberComponent.activate(5)
-	elif timer % 600 == 200:
-		$QueryComponent.activate(3)
-	elif timer % 600 == 250:
-		$OnceComponent.activate(3)
-	elif timer % 600 == 300:
-		$ParityComponent.activate(3)
-	elif timer % 600 == 350:
-		$AlternateComponent.activate(3)
-	elif timer % 600 == 400:
-		$ChordComponent.activate(3)
-	elif timer % 600 == 450:
-		$DirectionComponent.activate(3)
-	elif timer % 600 == 500:
-		$VolumeComponent.activate(5)
-	elif timer % 600 == 550:
-		$MemoryComponent.activate(5)
-	
-	timer += 1
+	if started:
+		if timer % 600 == 0:
+			$SequenceComponent.activate(3)
+		elif timer % 600 == 25:
+			$CadenceComponent.activate(5)
+		elif timer % 600 == 50:
+			$CountComponent.activate(5)
+		elif timer % 600 == 100:
+			$ScaleComponent.activate($ScaleComponent.note_time * 5)
+		elif timer % 600 == 150:
+			$NumberComponent.activate(5)
+		elif timer % 600 == 200:
+			$QueryComponent.activate(3)
+		elif timer % 600 == 250:
+			$OnceComponent.activate(3)
+		elif timer % 600 == 300:
+			$ParityComponent.activate(3)
+		elif timer % 600 == 350:
+			$AlternateComponent.activate(3)
+		elif timer % 600 == 400:
+			$ChordComponent.activate(3)
+		elif timer % 600 == 450:
+			$DirectionComponent.activate(3)
+		elif timer % 600 == 500:
+			$VolumeComponent.activate(5)
+		elif timer % 600 == 550:
+			$MemoryComponent.activate(5)
+		
+		timer += 1

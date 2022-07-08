@@ -5,15 +5,14 @@ signal win
 const WIN_TIME: float = 30.0
 onready var progress_bar = $ProgressBar
 onready var win_timer = $WinTimer
+onready var grid = $Grid
 
 var started: bool = false
-
-func _ready() -> void:
-	start()  # For now we just start when the program starts
 
 # Starts the device
 func start() -> void:
 	started = true
+	grid.start()
 	win_timer.start(WIN_TIME)
 
 # When a component on the grid fails, reset the win timer
