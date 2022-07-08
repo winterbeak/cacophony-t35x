@@ -2,18 +2,25 @@ extends Node2D
 
 var timer = 0
 
+onready var rows = [
+	[$QueryComponent, $ChordComponent, $SequenceComponent],
+	[$ScaleComponent, $VolumeComponent, $CountComponent, $ParityComponent, $NumberComponent, $OnceComponent],
+	[$MemoryComponent, $DirectionComponent, $AlternateComponent, $CadenceComponent]
+]
+onready var components = []
+
 func _ready():
+	for row in rows:
+		for component in row:
+			components.append(component)
+	
 	# Row 1 position setting
 	$ChordComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
 	$SequenceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
 	
 	# Row 2 position setting
-	$ScaleComponent.position.y = Constants.LIGHT_DISTANCE_VERT
-	$VolumeComponent.position.y = Constants.LIGHT_DISTANCE_VERT
-	$CountComponent.position.y = Constants.LIGHT_DISTANCE_VERT
-	$ParityComponent.position.y = Constants.LIGHT_DISTANCE_VERT
-	$NumberComponent.position.y = Constants.LIGHT_DISTANCE_VERT
-	$OnceComponent.position.y = Constants.LIGHT_DISTANCE_VERT
+	for component in rows[1]:
+		component.position.y = Constants.LIGHT_DISTANCE_VERT
 	
 	$VolumeComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	$CountComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
@@ -22,10 +29,8 @@ func _ready():
 	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
 	
 	# Row 3 position setting
-	$MemoryComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
-	$DirectionComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
-	$AlternateComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
-	$CadenceComponent.position.y = Constants.LIGHT_DISTANCE_VERT * 2
+	for component in rows[2]:
+		component.position.y = Constants.LIGHT_DISTANCE_VERT * 2
 	
 	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
