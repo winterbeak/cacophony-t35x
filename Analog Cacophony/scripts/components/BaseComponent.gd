@@ -20,6 +20,7 @@ func activate(time: float) -> void:
 
 # Deactivates the component, stopping the failure timer.
 func deactivate() -> void:
+	on_deactivate()
 	activated = false
 	$Timer.stop()
 
@@ -29,6 +30,7 @@ func _on_Timer_timeout() -> void:
 
 # Causes the component to fail. Call whenever the player does something incorrect.
 func fail() -> void:
+	on_fail()
 	deactivate()
 	for light in lights:
 		light.flash_red()
@@ -36,6 +38,15 @@ func fail() -> void:
 
 # Determines what to do with the pressed key.
 func on_key_press(key: String) -> void:
+	pass
+
+# Overrideable function for things that occur when the component is deactivated
+# Note that fail() calls deactivate(), so these also run when the component is failed
+func on_deactivate() -> void:
+	pass
+
+# Overrideable function for things that occur when the component is failed
+func on_fail() -> void:
 	pass
 
 # Connects the fail signal to some other object
