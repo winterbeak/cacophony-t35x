@@ -37,6 +37,10 @@ func play_note(note_num: int) -> void:
 func fade_out_note(note_num: int) -> void:
 	note_tweens[note_num].start()
 
+func on_fail() -> void:
+	# Fade out current note on fail
+	fade_out_note(current_note)
+
 func on_key_press(key: String) -> void:
 	if key == lights[0].key:
 		note_timer.stop()
