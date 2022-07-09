@@ -38,6 +38,10 @@ func fail() -> void:
 func on_key_press(key: String) -> void:
 	pass
 
+# Connects the fail signal to some other object
+func connect_fail(target: Object) -> void:
+	connect("fail", target, "_on_component_fail")
+
 func _process(delta: float) -> void:
 	for light in lights:
 		if Input.is_action_just_pressed(light.key):
