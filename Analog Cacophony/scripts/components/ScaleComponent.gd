@@ -14,8 +14,8 @@ var note_tweens: Array = []
 func _ready() -> void:
 	lights = [$Light]
 	for note in notes:
-		note.position.x = Constants.LIGHT_WIDTH/2
-		note.position.y = Constants.LIGHT_HEIGHT/2
+		note.position.x = Constants.LIGHT_CENTER_X
+		note.position.y = Constants.LIGHT_CENTER_Y
 		
 		# For quickly fading out note before next one plays
 		var tween = Tween.new()

@@ -27,7 +27,7 @@ func on_key_press(key: String) -> void:
 # Changes the activated light to the next one in sequence.
 func next_light() -> void:
 	
-	fill_player.position.x = Constants.LIGHT_DISTANCE_HORIZ * (3.0 - current_light) + Constants.LIGHT_WIDTH
+	fill_player.position.x = Constants.LIGHT_DISTANCE_HORIZ * (3.0 - current_light) + Constants.LIGHT_CENTER_X
 	fill_player.pitch_scale = 0.7 + current_light * 0.12
 	fill_player.play()
 	
