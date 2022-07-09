@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/components/ScaleComponent.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/BaseComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/piano_d.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/piano_c.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/piano_f.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/piano_final.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/piano_e.ogg" type="AudioStream" id=8]
 
 [node name="ScaleComponent" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -11,5 +16,20 @@ script = ExtResource( 1 )
 
 [node name="Light" parent="." index="2" instance=ExtResource( 3 )]
 key = "a"
+
+[node name="C" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 5 )
+
+[node name="D" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 4 )
+
+[node name="E" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 8 )
+
+[node name="F" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource( 6 )
+
+[node name="Final" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource( 7 )
 
 [connection signal="timeout" from="NoteTimer" to="." method="_on_NoteTimer_timeout"]
