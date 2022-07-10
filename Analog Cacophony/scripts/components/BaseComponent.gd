@@ -6,6 +6,7 @@ const VALID_KEYS: String = "qwertyuiopasdfghjklSzxcvbnm,.?"
 signal fail
 var lights: Array = []
 var activated: bool = false
+onready var fail_sound = $Fail
 
 # Component-specific activation code. To be implemented by the subclass.
 func start() -> void:
@@ -30,6 +31,9 @@ func _on_Timer_timeout() -> void:
 
 # Causes the component to fail. Call whenever the player does something incorrect.
 func fail() -> void:
+	fail_sound.volume_db = -12
+	fail_sound.pitch_scale = 0.95 + randf()*0.1
+	fail_sound.play()
 	on_fail()
 	deactivate()
 	for light in lights:
