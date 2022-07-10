@@ -7,6 +7,7 @@ signal fail
 var lights: Array = []
 var activated: bool = false
 onready var fail_sound = $Fail
+onready var timer = $Timer
 
 # Component-specific activation code. To be implemented by the subclass.
 func start() -> void:
@@ -17,13 +18,13 @@ func start() -> void:
 func activate(time: float) -> void:
 	activated = true
 	start()
-	$Timer.start(time)
+	timer.start(time)
 
 # Deactivates the component, stopping the failure timer.
 func deactivate() -> void:
 	on_deactivate()
 	activated = false
-	$Timer.stop()
+	timer.stop()
 
 # Called when the component automatically fails.
 func _on_Timer_timeout() -> void:
@@ -62,6 +63,13 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed(light.key):
 			# If the component is activated, do something with the key
 			if activated:
+				
+				# Leeway to push the game in the player's favor; each correct press below 0.5
+				# seconds left will set the timer back to 0.5 so that the player won't be failed
+				# in the middle of inputting the solution
+				if timer.time_left < 0.5:
+					timer.start(0.5)
+				
 				on_key_press(light.key)
 			
 			# Otherwise, fail the component
