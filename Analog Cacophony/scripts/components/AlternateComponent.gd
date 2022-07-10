@@ -10,10 +10,10 @@ func _ready() -> void:
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
 	
 	activate_sound.position.x = Constants.LIGHT_DISTANCE_HORIZ
-	drum_sounds[0].position.x = Constants.LIGHT_CENTER_X
-	drum_sounds[2].position.x = Constants.LIGHT_CENTER_X
-	drum_sounds[1].position.x = Constants.LIGHT_DISTANCE_HORIZ + Constants.LIGHT_CENTER_X
-	drum_sounds[3].position.x = Constants.LIGHT_DISTANCE_HORIZ + Constants.LIGHT_CENTER_X
+	
+	for i in range(len(drum_sounds)):
+		drum_sounds[i].position.x = (i%2)*Constants.LIGHT_DISTANCE_HORIZ + Constants.LIGHT_CENTER_X
+		drum_sounds[i].position.y = Constants.LIGHT_CENTER_Y
 
 func start() -> void:
 	lights[0].turn_on()
