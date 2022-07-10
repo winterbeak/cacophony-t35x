@@ -41,18 +41,27 @@ func on_key_press(key: String) -> void:
 		fail()
 	else:
 		phone_sounds[sequence[current_press]].play()
-		if current_press == BEEP_COUNT - 1:
+		current_press += 1
+		if current_press == BEEP_COUNT:
 			deactivate()
-		else:
-			current_press += 1
 
 func _on_NextBeepTimer_timeout():
 	current_beep += 1
-	if current_beep == BEEP_COUNT:
+	
+	# If the player has solved the component, stop beeping
+	if not activated:
 		next_beep_timer.stop()
-		lights[0].turn_on()
-		lights[1].turn_on()
-		lights[2].turn_on()
+	
+	# Stop beeping once all beeps are complete
+	elif current_beep == BEEP_COUNT:
+		next_beep_timer.stop()
+		
+		# Player may have half-solved the component before the final flash, so
+		# only turn on the unpressed lights
+		for i in range(current_press, len(sequence)):
+			lights[sequence[i]].turn_on()
+	
+	# Play the next beep and flash the next light
 	else:
 		lights[sequence[current_beep - 1]].turn_off()
 		lights[sequence[current_beep]].turn_on()
