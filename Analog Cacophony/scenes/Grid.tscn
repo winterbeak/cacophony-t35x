@@ -15,6 +15,7 @@
 [ext_resource path="res://scenes/components/MemoryComponent.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/components/CadenceComponent.tscn" type="PackedScene" id=14]
 
+
 [node name="Grid" type="Node2D"]
 script = ExtResource( 2 )
 
