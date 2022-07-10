@@ -20,8 +20,10 @@ func _ready() -> void:
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
 	lights[2].position.x = Constants.LIGHT_DISTANCE_HORIZ * 2
 	
-	for sound in phone_sounds:
-		sound.volume_db = PHONE_VOLUME
+	for i in range(len(phone_sounds)):
+		phone_sounds[i].volume_db = PHONE_VOLUME
+		phone_sounds[i].position.x = i*Constants.LIGHT_DISTANCE_HORIZ + Constants.LIGHT_CENTER_X
+		phone_sounds[i].position.y = Constants.LIGHT_CENTER_Y
 
 func start() -> void:
 	sequence = [0, 1, 2]
