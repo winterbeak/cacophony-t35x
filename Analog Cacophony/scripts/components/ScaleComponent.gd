@@ -5,6 +5,8 @@ extends "res://scripts/components/BaseComponent.gd"
 
 var current_note: int = 0
 const FINAL_NOTE: int = 3  # Final note played without player input
+const MAX_VOLUME: int = -8
+const FINAL_NOTE_VOLUME: int = -3
 export var note_time: float = 1.0
 onready var note_timer: Timer = $NoteTimer
 
@@ -16,11 +18,14 @@ func _ready() -> void:
 	for note in notes:
 		note.position.x = Constants.LIGHT_CENTER_X
 		note.position.y = Constants.LIGHT_CENTER_Y
+		note.volume_db = MAX_VOLUME
 		
 		# For quickly fading out note before next one plays
 		var tween = Tween.new()
 		add_child(tween)
 		note_tweens.append(tween)
+		
+	notes[-1].volume_db = FINAL_NOTE_VOLUME
 
 func start() -> void:
 	current_note = 0
@@ -30,8 +35,13 @@ func start() -> void:
 	note_timer.start(note_time)
 
 func play_note(note_num: int) -> void:
-	note_tweens[note_num].interpolate_property(notes[note_num], "volume_db", 0, -60, 0.05)
-	notes[note_num].volume_db = 1.0
+	var volume
+	if note_num == len(notes) - 1 or note_num == -1:
+		volume = FINAL_NOTE_VOLUME
+	else:
+		volume = MAX_VOLUME
+	note_tweens[note_num].interpolate_property(notes[note_num], "volume_db", volume, -60, 0.05)
+	notes[note_num].volume_db = volume
 	notes[note_num].play()
 
 func fade_out_note(note_num: int) -> void:
