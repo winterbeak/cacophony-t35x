@@ -8,4 +8,4 @@
 script = ExtResource( 2 )
 
 [node name="Light" parent="." index="1" instance=ExtResource( 3 )]
-key = "j"
+key = "S"

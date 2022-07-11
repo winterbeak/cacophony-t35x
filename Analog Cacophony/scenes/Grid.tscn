@@ -15,7 +15,6 @@
 [ext_resource path="res://scenes/components/MemoryComponent.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/components/CadenceComponent.tscn" type="PackedScene" id=14]
 
-
 [node name="Grid" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -31,11 +30,11 @@ script = ExtResource( 2 )
 
 [node name="CountComponent" parent="." instance=ExtResource( 8 )]
 
-[node name="OnceComponent" parent="." instance=ExtResource( 10 )]
+[node name="NumberComponent" parent="." instance=ExtResource( 9 )]
 
 [node name="ParityComponent" parent="." instance=ExtResource( 7 )]
 
-[node name="NumberComponent" parent="." instance=ExtResource( 9 )]
+[node name="OnceComponent" parent="." instance=ExtResource( 10 )]
 
 [node name="MemoryComponent" parent="." instance=ExtResource( 13 )]
 
