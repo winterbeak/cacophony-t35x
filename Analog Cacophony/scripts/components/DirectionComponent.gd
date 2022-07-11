@@ -6,6 +6,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 onready var left_sound = $Left
 onready var right_sound = $Right
+onready var correct_sound = $Correct
 
 func _ready() -> void:
 	lights = [$Light1, $Light2]
@@ -24,8 +25,10 @@ func on_key_press(key: String) -> void:
 	lights[0].turn_off()
 	lights[1].turn_off()
 	if direction_is_left and key == lights[0].key:
+		correct_sound.play()
 		deactivate()
 	elif (not direction_is_left) and key == lights[1].key:
+		correct_sound.play()
 		deactivate()
 	else:
 		fail()
