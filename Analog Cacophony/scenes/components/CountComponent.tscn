@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/components/CountComponent.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/components/BaseComponent.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/count_g.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/count_c.ogg" type="AudioStream" id=5]
 
 [node name="CountComponent" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
@@ -11,5 +13,11 @@ script = ExtResource( 1 )
 key = "f"
 
 [node name="NextBeepTimer" type="Timer" parent="." index="2"]
+
+[node name="G" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 4 )
+
+[node name="C" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 5 )
 
 [connection signal="timeout" from="NextBeepTimer" to="." method="_on_NextBeepTimer_timeout"]
