@@ -9,7 +9,7 @@ var current_beep: int = 0
 var current_press: int = 0
 var sequence: Array = []
 onready var phone_sounds: Array = [$Phone1, $Phone2, $Phone3]
-const PHONE_VOLUME: int = -10
+const PHONE_VOLUME: int = -14
 
 const BEEP_TIME: float = 0.5
 onready var next_beep_timer: Timer = $NextBeepTimer

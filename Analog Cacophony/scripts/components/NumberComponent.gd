@@ -6,6 +6,7 @@ var actual: int = 0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 onready var number_sounds = [$One, $Two, $Three, $Four, $Five]
 onready var tick_sound = $Tick
+const NUMBER_SOUND_VOLUME = -3
 
 func _ready() -> void:
 	lights = [$Light]
@@ -13,6 +14,7 @@ func _ready() -> void:
 	for sound in number_sounds:
 		sound.position.x = Constants.LIGHT_CENTER_X
 		sound.position.y = Constants.LIGHT_CENTER_Y
+		sound.volume_db = NUMBER_SOUND_VOLUME
 	tick_sound.position.x = Constants.LIGHT_CENTER_X
 	tick_sound.position.y = Constants.LIGHT_CENTER_Y
 

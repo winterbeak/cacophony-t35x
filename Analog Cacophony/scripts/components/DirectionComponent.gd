@@ -7,10 +7,14 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 onready var left_sound = $Left
 onready var right_sound = $Right
 onready var correct_sound = $Correct
+const DIRECTION_VOLUME = -4
 
 func _ready() -> void:
 	lights = [$Light1, $Light2]
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
+	
+	left_sound.volume_db = DIRECTION_VOLUME
+	right_sound.volume_db = DIRECTION_VOLUME
 
 func start() -> void:
 	lights[0].turn_on()
