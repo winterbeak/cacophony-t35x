@@ -17,6 +17,8 @@ const SOUND_VOLUME = -6
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	rng.randomize()
+	
 	lights = [$Light]
 	beep_sound.volume_db = SOUND_VOLUME
 	press_sound.volume_db = SOUND_VOLUME

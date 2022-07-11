@@ -5,6 +5,8 @@ var correct_light: int = 0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	rng.randomize()
+	
 	# Lights from left to right
 	lights = [$Light1, $Light2, $Light3, $Light4]
 	for i in range(len(lights)):

@@ -6,6 +6,8 @@ var pressed: Array = []
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	rng.randomize()
+	
 	lights = [$Light1, $Light2, $Light3]
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
 	lights[2].position.x = Constants.LIGHT_DISTANCE_HORIZ * 2

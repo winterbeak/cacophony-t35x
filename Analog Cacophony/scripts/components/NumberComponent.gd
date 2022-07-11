@@ -9,6 +9,8 @@ onready var tick_sound = $Tick
 const NUMBER_SOUND_VOLUME = -3
 
 func _ready() -> void:
+	rng.randomize()
+	
 	lights = [$Light]
 	
 	for sound in number_sounds:

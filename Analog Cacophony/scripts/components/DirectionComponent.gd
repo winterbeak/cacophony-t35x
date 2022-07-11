@@ -10,6 +10,8 @@ onready var correct_sound = $Correct
 const DIRECTION_VOLUME = -4
 
 func _ready() -> void:
+	rng.randomize()
+	
 	lights = [$Light1, $Light2]
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	
