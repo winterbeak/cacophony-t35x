@@ -4,6 +4,9 @@ var direction_is_left: bool = false
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
+onready var left_sound = $Left
+onready var right_sound = $Right
+
 func _ready() -> void:
 	lights = [$Light1, $Light2]
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
@@ -12,6 +15,10 @@ func start() -> void:
 	lights[0].turn_on()
 	lights[1].turn_on()
 	direction_is_left = rng.randi_range(0, 1) == 0
+	if direction_is_left:
+		left_sound.play()
+	else:
+		right_sound.play()
 
 func on_key_press(key: String) -> void:
 	lights[0].turn_off()
