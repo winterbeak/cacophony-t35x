@@ -1,11 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/components/NumberComponent.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/BaseComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/numbers_two.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/numbers_four.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/numbers_five.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/numbers_one.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/numbers_three.ogg" type="AudioStream" id=8]
 
 [node name="NumberComponent" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
 [node name="Light" parent="." index="1" instance=ExtResource( 3 )]
 key = "S"
+
+[node name="One" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 7 )
+
+[node name="Two" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 4 )
+
+[node name="Three" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 8 )
+
+[node name="Four" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource( 5 )
+
+[node name="Five" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource( 6 )

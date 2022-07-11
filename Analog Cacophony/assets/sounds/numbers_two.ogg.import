@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/numbers_two.ogg-f430cde00e458949a84d4ac31ecbce4d.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/numbers_two.ogg"
+dest_files=[ "res://.import/numbers_two.ogg-f430cde00e458949a84d4ac31ecbce4d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
