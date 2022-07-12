@@ -10,6 +10,9 @@ func _ready() -> void:
 	lights = [$Light1, $Light2, $Light3, $Light4]
 	for i in range(len(lights)):
 		lights[i].position.x = Constants.LIGHT_DISTANCE_HORIZ * (3 - i)
+	
+	fill_player.position.y = Constants.LIGHT_CENTER_Y
+	activate_player.position = Vector2(Constants.LIGHT_DISTANCE_HORIZ*2, Constants.LIGHT_CENTER_Y)
 
 func start() -> void:
 	activate_player.play()
@@ -27,7 +30,7 @@ func on_key_press(key: String) -> void:
 # Changes the activated light to the next one in sequence.
 func next_light() -> void:
 	
-	fill_player.position.x = Constants.LIGHT_DISTANCE_HORIZ * (3.5 - current_light)
+	fill_player.position.x = Constants.LIGHT_DISTANCE_HORIZ * (3.0 - current_light) + Constants.LIGHT_CENTER_X
 	fill_player.pitch_scale = 0.7 + current_light * 0.12
 	fill_player.play()
 	

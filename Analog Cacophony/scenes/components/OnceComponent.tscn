@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/components/BaseComponent.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/components/OnceComponent.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/scratch_deactivate.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/scratch_activate.ogg" type="AudioStream" id=5]
 
 [node name="OnceComponent" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Light" parent="." index="1" instance=ExtResource( 3 )]
-key = "j"
+key = "S"
+
+[node name="Deactivate" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource( 4 )
+
+[node name="Activate" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 5 )
+
+[node name="ActivateFader" type="Tween" parent="." index="5"]

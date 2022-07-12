@@ -31,9 +31,9 @@ func _ready():
 	
 	$VolumeComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	$CountComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
-	$OnceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
+	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
 	$ParityComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
-	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
+	$OnceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
 	
 	# Row 3 position setting
 	for component in rows[2]:

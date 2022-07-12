@@ -30,11 +30,11 @@ script = ExtResource( 2 )
 
 [node name="CountComponent" parent="." instance=ExtResource( 8 )]
 
-[node name="OnceComponent" parent="." instance=ExtResource( 10 )]
+[node name="NumberComponent" parent="." instance=ExtResource( 9 )]
 
 [node name="ParityComponent" parent="." instance=ExtResource( 7 )]
 
-[node name="NumberComponent" parent="." instance=ExtResource( 9 )]
+[node name="OnceComponent" parent="." instance=ExtResource( 10 )]
 
 [node name="MemoryComponent" parent="." instance=ExtResource( 13 )]
 
