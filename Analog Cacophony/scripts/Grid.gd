@@ -2,15 +2,32 @@ extends Node2D
 
 signal fail
 
-var timer = 0
 var started: bool = false
+var current_beat: int = 0
 
 onready var rows = [
 	[$QueryComponent, $ChordComponent, $SequenceComponent],
-	[$ScaleComponent, $VolumeComponent, $CountComponent, $ParityComponent, $NumberComponent, $OnceComponent],
-	[$MemoryComponent, $DirectionComponent, $AlternateComponent, $CadenceComponent]
+	[$ScaleComponent, $VolumeComponent, $CountComponent, $NumberComponent, $ParityComponent, $OnceComponent],
+	[$CadenceComponent, $DirectionComponent, $AlternateComponent, $MemoryComponent]
 ]
 onready var components = []
+onready var beat_keeper = $BeatKeeper
+const BEAT_TIME: float = 1.5
+onready var beat_sequence = [
+	$SequenceComponent,
+	$CountComponent,
+	$ScaleComponent,
+	$MemoryComponent,
+	$AlternateComponent,
+	$QueryComponent,
+	$OnceComponent,
+	$NumberComponent,
+	$CadenceComponent,
+	$ChordComponent,
+	$DirectionComponent,
+	$ParityComponent,
+	$VolumeComponent
+]
 
 func _ready():
 	for row in rows:
@@ -41,41 +58,55 @@ func _ready():
 	
 	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
-	$CadenceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+	$MemoryComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 
 func _on_component_fail():
 	emit_signal("fail")
 
 func start():
 	started = true
+	beat_sequence.shuffle()
+	beat_keeper.start(BEAT_TIME)
 
-func _process(delta):
-	if started:
-		if timer % 600 == 0:
-			$SequenceComponent.activate(3)
-		elif timer % 600 == 25:
-			$CadenceComponent.activate(5)
-		elif timer % 600 == 50:
-			$CountComponent.activate(5)
-		elif timer % 600 == 100:
-			$ScaleComponent.activate($ScaleComponent.note_time * 5)
-		elif timer % 600 == 150:
-			$NumberComponent.activate(5)
-		elif timer % 600 == 200:
-			$QueryComponent.activate(3)
-		elif timer % 600 == 250:
-			$OnceComponent.activate(3)
-		elif timer % 600 == 300:
-			$ParityComponent.activate(3)
-		elif timer % 600 == 350:
-			$AlternateComponent.activate(3)
-		elif timer % 600 == 400:
-			$ChordComponent.activate(3)
-		elif timer % 600 == 450:
-			$DirectionComponent.activate(3)
-		elif timer % 600 == 500:
-			$VolumeComponent.activate(5)
-		elif timer % 600 == 550:
-			$MemoryComponent.activate(5)
-		
-		timer += 1
+func stop():
+	started = false
+	beat_keeper.stop()
+	for component in components:
+		component.lock()
+
+func activate_fixed_sequence():
+	beat_sequence[current_beat].activate(5)
+	current_beat += 1
+	current_beat %= len(beat_sequence)
+
+# If you use this sequence, make sure to shuffle the bag in start()
+func activate_bag_randomizer():
+	beat_sequence[current_beat].activate(5)
+	
+	current_beat += 1
+	if current_beat == len(beat_sequence):
+		current_beat = 0
+		shuffle_bag()
+
+func shuffle_bag():
+	# We randomize so that the last three of the previous bag won't appear in the first three
+	# of the next; this is to prevent a module from repeating too close to itself
+	var last_three = []
+	for i in range(len(beat_sequence) - 3, len(beat_sequence)):
+		last_three.append(beat_sequence[i])
+	var rest = []
+	for i in range(len(beat_sequence) - 3):
+		rest.append(beat_sequence[i])
+	
+	rest.shuffle()
+	
+	beat_sequence = []
+	for i in range(3):
+		beat_sequence.append(rest.pop_front())
+		rest.append(last_three.pop_back())
+	rest.shuffle()
+	for i in range(len(rest)):
+		beat_sequence.append(rest.pop_back())
+
+func _on_BeatKeeper_timeout():
+	activate_bag_randomizer()

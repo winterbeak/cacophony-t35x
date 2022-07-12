@@ -9,7 +9,7 @@ var first_key_is_volume_up: bool = true
 onready var guitar_c = $C
 onready var guitar_g = $G
 onready var guitar_chord = $Chord
-const GUITAR_VOLUME_STEP = 3
+const GUITAR_VOLUME_STEP = 4
 const GUITAR_VOLUME = -2
 
 func _ready() -> void:
