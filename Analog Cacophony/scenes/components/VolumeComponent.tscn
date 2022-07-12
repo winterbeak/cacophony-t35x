@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/components/VolumeComponent.gd" type="Script" id=1]
 [ext_resource path="res://scenes/components/BaseComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/guitar_c.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/guitar_chord.ogg" type="AudioStream" id=6]
 
 [node name="VolumeComponent" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -12,3 +14,9 @@ key = "d"
 
 [node name="Light1" parent="." index="2" instance=ExtResource( 3 )]
 key = "s"
+
+[node name="C" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 5 )
+
+[node name="Chord" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 6 )
