@@ -11,6 +11,8 @@ const BEEP_TIME: float = 0.2
 onready var next_beep_timer: Timer = $NextBeepTimer
 onready var tick_sound = $Tick
 onready var deactivate_sound = $Deactivate
+const TICK_VOLUME = -4
+const DEACTIVATE_VOLUME = -2
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -18,6 +20,9 @@ func _ready() -> void:
 	# Lights from left to right
 	lights = [$Light1, $Light2]
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
+	
+	tick_sound.volume_db = TICK_VOLUME
+	deactivate_sound.volume_db = DEACTIVATE_VOLUME
 
 func start() -> void:
 	beep_count = rng.randi_range(3, 6)
