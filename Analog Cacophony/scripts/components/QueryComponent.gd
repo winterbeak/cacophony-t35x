@@ -43,6 +43,9 @@ func press_light(light_num: int) -> void:
 	if pressed_lights[light_num]:
 		fail()
 	elif light_num == correct_light:
+		for light in lights:
+			light.turn_off()
+		
 		deactivate()
 		right_query_sound.position.x = light_num*Constants.LIGHT_DISTANCE_HORIZ + Constants.LIGHT_CENTER_X
 		right_query_sound.play()
