@@ -7,7 +7,7 @@ var started: bool = false
 
 onready var rows = [
 	[$QueryComponent, $ChordComponent, $SequenceComponent],
-	[$ScaleComponent, $VolumeComponent, $CountComponent, $ParityComponent, $NumberComponent, $OnceComponent],
+	[$ScaleComponent, $VolumeComponent, $CountComponent, $NumberComponent, $ParityComponent, $OnceComponent],
 	[$CadenceComponent, $DirectionComponent, $AlternateComponent, $MemoryComponent]
 ]
 onready var components = []
