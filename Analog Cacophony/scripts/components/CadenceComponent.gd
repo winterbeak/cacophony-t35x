@@ -2,6 +2,10 @@ extends "res://scripts/components/BaseComponent.gd"
 
 var outside_is_first: bool = false
 var pressed: Array = []
+onready var sounds: Array = [$C, $E, $G]
+onready var activate_sound = $Activate
+const SOUND_VOLUME = -4
+const ACTIVATE_VOLUME = -1
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -11,8 +15,13 @@ func _ready() -> void:
 	lights = [$Light1, $Light2, $Light3]
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
 	lights[2].position.x = Constants.LIGHT_DISTANCE_HORIZ * 2
+	
+	for sound in sounds:
+		sound.volume_db = SOUND_VOLUME
+	activate_sound.volume_db = ACTIVATE_VOLUME
 
 func start() -> void:
+	activate_sound.play()
 	pressed = [false, false, false]
 	outside_is_first = rng.randi_range(0, 1) == 0
 	if outside_is_first:
@@ -35,6 +44,7 @@ func on_key_press(key: String) -> void:
 				fail()
 			else:
 				lights[i].turn_off()
+				sounds[i].play()
 				pressed[i] = true
 				
 				if outside_is_first and pressed[0] and pressed[2]:
