@@ -2,8 +2,8 @@ extends Node2D
 
 signal fail
 
-var timer = 0
 var started: bool = false
+var current_beat: int = 0
 
 onready var rows = [
 	[$QueryComponent, $ChordComponent, $SequenceComponent],
@@ -11,6 +11,23 @@ onready var rows = [
 	[$CadenceComponent, $DirectionComponent, $AlternateComponent, $MemoryComponent]
 ]
 onready var components = []
+onready var beat_keeper = $BeatKeeper
+const BEAT_TIME: float = 1.5
+onready var beat_sequence = [
+	$SequenceComponent,
+	$CountComponent,
+	$ScaleComponent,
+	$MemoryComponent,
+	$AlternateComponent,
+	$QueryComponent,
+	$OnceComponent,
+	$NumberComponent,
+	$CadenceComponent,
+	$ChordComponent,
+	$DirectionComponent,
+	$ParityComponent,
+	$VolumeComponent
+]
 
 func _ready():
 	for row in rows:
@@ -48,34 +65,12 @@ func _on_component_fail():
 
 func start():
 	started = true
+	beat_keeper.start(BEAT_TIME)
 
-func _process(delta):
-	if started:
-		if timer % 600 == 0:
-			$SequenceComponent.activate(3)
-		elif timer % 600 == 25:
-			$CadenceComponent.activate(5)
-		elif timer % 600 == 50:
-			$CountComponent.activate(5)
-		elif timer % 600 == 100:
-			$ScaleComponent.activate($ScaleComponent.note_time * 5)
-		elif timer % 600 == 150:
-			$NumberComponent.activate(5)
-		elif timer % 600 == 200:
-			$QueryComponent.activate(3)
-		elif timer % 600 == 250:
-			$OnceComponent.activate(3)
-		elif timer % 600 == 300:
-			$ParityComponent.activate(3)
-		elif timer % 600 == 350:
-			$AlternateComponent.activate(3)
-		elif timer % 600 == 400:
-			$ChordComponent.activate(3)
-		elif timer % 600 == 450:
-			$DirectionComponent.activate(3)
-		elif timer % 600 == 500:
-			$VolumeComponent.activate(5)
-		elif timer % 600 == 550:
-			$MemoryComponent.activate(5)
-		
-		timer += 1
+func activate_fixed_sequence():
+	beat_sequence[current_beat].activate(5)
+	current_beat += 1
+	current_beat %= len(beat_sequence)
+
+func _on_BeatKeeper_timeout():
+	activate_fixed_sequence()
