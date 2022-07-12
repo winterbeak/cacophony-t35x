@@ -7,6 +7,7 @@ const FAIL_VOLUME: int = 0
 var first_key_is_volume_up: bool = true
 
 onready var guitar_c = $C
+onready var guitar_g = $G
 onready var guitar_chord = $Chord
 const GUITAR_VOLUME_STEP = 3
 
@@ -15,13 +16,15 @@ func _ready() -> void:
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
 	guitar_c.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	guitar_chord.position.x = Constants.LIGHT_DISTANCE_HORIZ
+	
+	guitar_g.volume_db = -4
 
 func start() -> void:
 	first_key_is_volume_up = not first_key_is_volume_up
 	volume = START_VOLUME
 	lights[0].turn_on()
 	lights[1].turn_on()
-	play_current_guitar()
+	guitar_g.play()
 
 func increase_volume() -> void:
 	volume += 1
