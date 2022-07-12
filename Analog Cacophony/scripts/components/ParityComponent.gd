@@ -9,6 +9,8 @@ var current_beep: int = 1
 
 const BEEP_TIME: float = 0.2
 onready var next_beep_timer: Timer = $NextBeepTimer
+onready var tick_sound = $Tick
+onready var deactivate_sound = $Deactivate
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -23,14 +25,17 @@ func start() -> void:
 	lights[0].turn_on()
 	lights[1].turn_off()
 	next_beep_timer.start(BEEP_TIME)
+	tick_sound.play()
 
 func on_key_press(key: String) -> void:
 	if next_beep_timer.is_stopped():
 		lights[0].turn_off()
 		lights[1].turn_off()
 		if beep_count % 2 == 0 and key == lights[1].key:
+			deactivate_sound.play()
 			deactivate()
 		elif beep_count % 2 == 1 and key == lights[0].key:
+			deactivate_sound.play()
 			deactivate()
 		else:
 			fail()
@@ -44,6 +49,8 @@ func _on_NextBeepTimer_timeout():
 	elif current_beep % 2 == 0:
 		lights[0].turn_off()
 		lights[1].turn_on()
+		tick_sound.play()
 	else:
 		lights[0].turn_on()
 		lights[1].turn_off()
+		tick_sound.play()
