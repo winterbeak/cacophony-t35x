@@ -13,13 +13,13 @@ script = ExtResource( 1 )
 [node name="NextBeepTimer" type="Timer" parent="." index="1"]
 
 [node name="Light3" parent="." index="2" instance=ExtResource( 2 )]
-key = "c"
+key = "?"
 
 [node name="Light2" parent="." index="3" instance=ExtResource( 2 )]
-key = "x"
+key = "."
 
 [node name="Light1" parent="." index="4" instance=ExtResource( 2 )]
-key = "z"
+key = ","
 
 [node name="Phone1" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource( 4 )

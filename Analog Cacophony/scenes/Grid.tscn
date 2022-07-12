@@ -36,10 +36,10 @@ script = ExtResource( 2 )
 
 [node name="OnceComponent" parent="." instance=ExtResource( 10 )]
 
-[node name="MemoryComponent" parent="." instance=ExtResource( 13 )]
+[node name="CadenceComponent" parent="." instance=ExtResource( 14 )]
 
 [node name="DirectionComponent" parent="." instance=ExtResource( 12 )]
 
 [node name="AlternateComponent" parent="." instance=ExtResource( 11 )]
 
-[node name="CadenceComponent" parent="." instance=ExtResource( 14 )]
+[node name="MemoryComponent" parent="." instance=ExtResource( 13 )]

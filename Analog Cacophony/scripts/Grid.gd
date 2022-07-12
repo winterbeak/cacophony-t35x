@@ -8,7 +8,7 @@ var started: bool = false
 onready var rows = [
 	[$QueryComponent, $ChordComponent, $SequenceComponent],
 	[$ScaleComponent, $VolumeComponent, $CountComponent, $ParityComponent, $NumberComponent, $OnceComponent],
-	[$MemoryComponent, $DirectionComponent, $AlternateComponent, $CadenceComponent]
+	[$CadenceComponent, $DirectionComponent, $AlternateComponent, $MemoryComponent]
 ]
 onready var components = []
 
@@ -41,7 +41,7 @@ func _ready():
 	
 	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
-	$CadenceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+	$MemoryComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 
 func _on_component_fail():
 	emit_signal("fail")
