@@ -10,6 +10,7 @@ onready var guitar_c = $C
 onready var guitar_g = $G
 onready var guitar_chord = $Chord
 const GUITAR_VOLUME_STEP = 3
+const GUITAR_VOLUME = -2
 
 func _ready() -> void:
 	lights = [$Light1, $Light2]
@@ -17,7 +18,8 @@ func _ready() -> void:
 	guitar_c.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	guitar_chord.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	
-	guitar_g.volume_db = -4
+	guitar_g.volume_db = -6
+	guitar_chord.volume_db = -4
 
 func start() -> void:
 	first_key_is_volume_up = not first_key_is_volume_up
@@ -44,7 +46,7 @@ func decrease_volume() -> void:
 		play_current_guitar()
 
 func play_current_guitar() -> void:
-	guitar_c.volume_db = -GUITAR_VOLUME_STEP*(GOAL_VOLUME - volume)
+	guitar_c.volume_db = GUITAR_VOLUME - GUITAR_VOLUME_STEP*(GOAL_VOLUME - volume)
 	guitar_c.play()
 
 func on_key_press(key: String) -> void:

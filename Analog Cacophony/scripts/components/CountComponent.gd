@@ -12,7 +12,7 @@ const BEEP_TIME: float = 0.235
 onready var next_beep_timer: Timer = $NextBeepTimer
 onready var beep_sound = $G
 onready var press_sound = $C
-const SOUND_VOLUME = -6
+const SOUND_VOLUME = -8
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 

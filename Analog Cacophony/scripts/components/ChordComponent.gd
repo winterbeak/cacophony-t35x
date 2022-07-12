@@ -9,7 +9,7 @@ var pressed_lights: Array = []
 onready var violin_sounds: Array = [$G, $F, $C, $E]
 onready var violin_activate = $Activate
 onready var violin_activate_fader = $ActivateFade
-const VIOLIN_VOLUME = -10
+const VIOLIN_VOLUME = -12
 
 func _ready() -> void:
 	lights = [$Light1, $Light2, $Light3, $Light4]

@@ -8,6 +8,7 @@ onready var left_sound = $Left
 onready var right_sound = $Right
 onready var correct_sound = $Correct
 const DIRECTION_VOLUME = -4
+const CORRECT_VOLUME = -6
 
 func _ready() -> void:
 	rng.randomize()
@@ -17,6 +18,7 @@ func _ready() -> void:
 	
 	left_sound.volume_db = DIRECTION_VOLUME
 	right_sound.volume_db = DIRECTION_VOLUME
+	correct_sound.volume_db = CORRECT_VOLUME
 
 func start() -> void:
 	lights[0].turn_on()

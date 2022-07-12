@@ -6,7 +6,7 @@ extends "res://scripts/components/BaseComponent.gd"
 var current_note: int = 0
 const FINAL_NOTE: int = 3  # Final note played without player input
 const MAX_VOLUME: int = -8
-const FINAL_NOTE_VOLUME: int = -3
+const FINAL_NOTE_VOLUME: int = -4
 export var note_time: float = 1.0
 onready var note_timer: Timer = $NoteTimer
 

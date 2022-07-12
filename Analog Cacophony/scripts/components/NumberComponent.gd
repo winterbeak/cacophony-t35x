@@ -6,7 +6,7 @@ var actual: int = 0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 onready var number_sounds = [$One, $Two, $Three, $Four, $Five]
 onready var tick_sound = $Tick
-const NUMBER_SOUND_VOLUME = -3
+const NUMBER_SOUND_VOLUME = -5
 
 func _ready() -> void:
 	rng.randomize()

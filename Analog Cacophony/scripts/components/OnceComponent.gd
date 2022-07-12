@@ -2,8 +2,8 @@ extends "res://scripts/components/BaseComponent.gd"
 
 onready var activate_sound = $Activate
 onready var deactivate_sound = $Deactivate
-const ACTIVATE_VOLUME = 0
-const DEACTIVATE_VOLUME = -4
+const ACTIVATE_VOLUME = 1
+const DEACTIVATE_VOLUME = -3
 onready var activate_sound_fader = $ActivateFader
 
 func _ready() -> void:
