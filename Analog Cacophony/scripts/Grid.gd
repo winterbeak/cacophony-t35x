@@ -68,6 +68,12 @@ func start():
 	beat_sequence.shuffle()
 	beat_keeper.start(BEAT_TIME)
 
+func stop():
+	started = false
+	beat_keeper.stop()
+	for component in components:
+		component.lock()
+
 func activate_fixed_sequence():
 	beat_sequence[current_beat].activate(5)
 	current_beat += 1
