@@ -30,6 +30,8 @@ func start() -> void:
 	lights[0].turn_on()
 	lights[1].turn_off()
 	next_beep_timer.start(BEEP_TIME)
+	
+	tick_sound.position = lights[0].position + Constants.LIGHT_CENTER
 	tick_sound.play()
 
 func on_key_press(key: String) -> void:
@@ -37,9 +39,11 @@ func on_key_press(key: String) -> void:
 		lights[0].turn_off()
 		lights[1].turn_off()
 		if beep_count % 2 == 0 and key == lights[1].key:
+			deactivate_sound.position = lights[1].position + Constants.LIGHT_CENTER
 			deactivate_sound.play()
 			deactivate()
 		elif beep_count % 2 == 1 and key == lights[0].key:
+			deactivate_sound.position = lights[0].position + Constants.LIGHT_CENTER
 			deactivate_sound.play()
 			deactivate()
 		else:
@@ -54,8 +58,12 @@ func _on_NextBeepTimer_timeout():
 	elif current_beep % 2 == 0:
 		lights[0].turn_off()
 		lights[1].turn_on()
+		
+		tick_sound.position = lights[1].position + Constants.LIGHT_CENTER
 		tick_sound.play()
 	else:
 		lights[0].turn_on()
 		lights[1].turn_off()
+		
+		tick_sound.position = lights[0].position + Constants.LIGHT_CENTER
 		tick_sound.play()

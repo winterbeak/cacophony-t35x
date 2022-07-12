@@ -19,6 +19,10 @@ func _ready() -> void:
 	left_sound.volume_db = DIRECTION_VOLUME
 	right_sound.volume_db = DIRECTION_VOLUME
 	correct_sound.volume_db = CORRECT_VOLUME
+	
+	left_sound.position = Constants.LIGHT_CENTER
+	right_sound.position = lights[1].position + Constants.LIGHT_CENTER
+	correct_sound.position = Vector2(Constants.LIGHT_DISTANCE_HORIZ*2, Constants.LIGHT_CENTER_Y)
 
 func start() -> void:
 	lights[0].turn_on()

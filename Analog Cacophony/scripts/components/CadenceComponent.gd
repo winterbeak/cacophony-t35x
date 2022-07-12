@@ -11,9 +11,12 @@ func _ready() -> void:
 	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
 	lights[2].position.x = Constants.LIGHT_DISTANCE_HORIZ * 2
 	
-	for sound in sounds:
-		sound.volume_db = SOUND_VOLUME
+	for i in range(len(sounds)):
+		sounds[i].volume_db = SOUND_VOLUME
+		sounds[i].position.x = Constants.LIGHT_DISTANCE_HORIZ*i + Constants.LIGHT_CENTER_X
+		sounds[i].position.y = Constants.LIGHT_CENTER_Y
 	activate_sound.volume_db = ACTIVATE_VOLUME
+	activate_sound.position = lights[1].position + Constants.LIGHT_CENTER
 
 func start() -> void:
 	activate_sound.play()

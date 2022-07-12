@@ -22,6 +22,8 @@ func _ready() -> void:
 	lights = [$Light]
 	beep_sound.volume_db = SOUND_VOLUME
 	press_sound.volume_db = SOUND_VOLUME
+	beep_sound.position = Constants.LIGHT_CENTER
+	press_sound.position = Constants.LIGHT_CENTER
 
 func start() -> void:
 	lights[0].turn_on()

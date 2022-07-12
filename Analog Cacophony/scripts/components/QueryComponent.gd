@@ -18,7 +18,7 @@ func _ready() -> void:
 	wrong_query_sound.volume_db = WRONG_QUERY_VOLUME
 	right_query_sound.volume_db = RIGHT_QUERY_VOLUME
 	
-	activate_sound.position.x = Constants.LIGHT_DISTANCE_HORIZ*2 + Constants.LIGHT_CENTER_X
+	activate_sound.position.x = Constants.LIGHT_DISTANCE_HORIZ*2
 	activate_sound.position.y = Constants.LIGHT_CENTER_Y
 	wrong_query_sound.position.y = Constants.LIGHT_CENTER_Y
 	right_query_sound.position.y = Constants.LIGHT_CENTER_Y

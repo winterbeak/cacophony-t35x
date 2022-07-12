@@ -28,6 +28,8 @@ func _ready() -> void:
 	for i in range(len(violin_sounds)):
 		violin_sounds[i].position.x = lights[i].position.x + Constants.LIGHT_CENTER_X
 		violin_sounds[i].position.y = lights[i].position.y + Constants.LIGHT_CENTER_Y
+	violin_activate.position.x = Constants.LIGHT_DISTANCE_HORIZ
+	violin_activate.position.y = Constants.LIGHT_DISTANCE_VERT
 
 func start() -> void:
 	pressed_lights = []

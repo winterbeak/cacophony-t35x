@@ -10,6 +10,9 @@ func _ready() -> void:
 	lights = [$Light1, $Light2, $Light3, $Light4]
 	for i in range(len(lights)):
 		lights[i].position.x = Constants.LIGHT_DISTANCE_HORIZ * (3 - i)
+	
+	fill_player.position.y = Constants.LIGHT_CENTER_Y
+	activate_player.position = Vector2(Constants.LIGHT_DISTANCE_HORIZ*2, Constants.LIGHT_CENTER_Y)
 
 func start() -> void:
 	activate_player.play()
