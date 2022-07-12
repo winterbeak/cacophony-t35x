@@ -51,6 +51,10 @@ func on_key_press(key: String) -> void:
 
 func _on_NextBeepTimer_timeout():
 	current_beep += 1
+	
+	tick_sound.position = lights[current_beep % 2].position + Constants.LIGHT_CENTER
+	tick_sound.play()
+	
 	if current_beep == beep_count:
 		next_beep_timer.stop()
 		lights[0].turn_on()
@@ -58,12 +62,6 @@ func _on_NextBeepTimer_timeout():
 	elif current_beep % 2 == 0:
 		lights[0].turn_off()
 		lights[1].turn_on()
-		
-		tick_sound.position = lights[1].position + Constants.LIGHT_CENTER
-		tick_sound.play()
 	else:
 		lights[0].turn_on()
 		lights[1].turn_off()
-		
-		tick_sound.position = lights[0].position + Constants.LIGHT_CENTER
-		tick_sound.play()
