@@ -12,7 +12,7 @@ const GUITAR_VOLUME_STEP = 3
 
 func _ready() -> void:
 	lights = [$Light1, $Light2]
-	lights[1].position.x = Constants.LIGHT_DISTANCE_VERT
+	lights[1].position.x = Constants.LIGHT_DISTANCE_HORIZ
 	guitar_c.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	guitar_chord.position.x = Constants.LIGHT_DISTANCE_HORIZ
 
