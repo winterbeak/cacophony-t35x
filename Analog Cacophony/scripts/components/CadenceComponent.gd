@@ -28,10 +28,11 @@ func on_key_press(key: String) -> void:
 	
 	for i in range(len(lights)):
 		if key == lights[i].key:
-			if (not pressed[0] or not pressed[2]) and i == 1:
+			if ((not pressed[0] or not pressed[2]) and i == 1) or pressed[i]:
 				for light in lights:
 					light.turn_off()
 				fail()
+				
 			else:
 				lights[i].turn_off()
 				sounds[i].play()
