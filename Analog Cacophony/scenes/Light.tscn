@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Light.gd" type="Script" id=1]
+[ext_resource path="res://boon-700.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 2 )
 
 [node name="Light" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,5 +15,13 @@ centered = false
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="KeyText" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 10.0
+margin_right = 52.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 0, 0, 0.427451 )
+custom_fonts/font = SubResource( 1 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

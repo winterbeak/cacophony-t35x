@@ -13,13 +13,24 @@ var tex_red_pressed: Texture = preload("res://assets/images/button_red_pressed.p
 
 onready var timer: Timer = $Timer
 onready var sprite: Sprite = $Sprite
+onready var key_text: Label = $KeyText
+
 
 enum LIGHT_COLOR {OFF, YELLOW, RED}
 
 var pressed: bool = false
 var color: int = LIGHT_COLOR.OFF
 
+func label_text() -> String:
+	if key == "S":
+		return ";"
+	elif key == "?":
+		return "/"
+	else:
+		return key.to_upper()
+
 func _ready() -> void:
+	key_text.text = label_text()
 	sprite.texture = tex_unpressed
 	turn_off()
 
@@ -46,9 +57,11 @@ func turn_color(color_const: int, time: float = -1.0):
 
 func press() -> void:
 	pressed = true
+	key_text.rect_position.y = 14
 
 func release() -> void:
 	pressed = false
+	key_text.rect_position.y = 10
 
 func current_sprite() -> Texture:
 	if pressed:
