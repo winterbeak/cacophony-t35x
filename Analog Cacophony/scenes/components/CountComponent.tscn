@@ -17,7 +17,13 @@ key = "f"
 [node name="G" type="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource( 4 )
 
-[node name="C" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="G2" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 4 )
+
+[node name="C" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource( 5 )
+
+[node name="C2" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource( 5 )
 
 [connection signal="timeout" from="NextBeepTimer" to="." method="_on_NextBeepTimer_timeout"]

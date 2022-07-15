@@ -12,7 +12,7 @@ onready var next_beep_timer: Timer = $NextBeepTimer
 onready var tick_sound = $Tick
 onready var deactivate_sound = $Deactivate
 const TICK_VOLUME = -4
-const DEACTIVATE_VOLUME = -2
+const DEACTIVATE_VOLUME = 0
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
