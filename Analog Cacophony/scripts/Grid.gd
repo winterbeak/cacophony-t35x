@@ -89,25 +89,28 @@ func activate_bag_randomizer():
 		current_beat = 0
 		shuffle_bag()
 
+const SHUFFLE_NO_OVERLAP_AMOUNT: int = 5
+
 func shuffle_bag():
-	# We randomize so that the last three of the previous bag won't appear in the first three
+	# We randomize so that the last few of the previous bag won't appear in the first few
 	# of the next; this is to prevent a module from repeating too close to itself
-	var last_three = []
-	for i in range(len(beat_sequence) - 3, len(beat_sequence)):
-		last_three.append(beat_sequence[i])
-	var rest = []
-	for i in range(len(beat_sequence) - 3):
-		rest.append(beat_sequence[i])
+	# (and potentially activating again while it's already activated)
+	var last_of_previous_bag = []
+	for i in range(len(beat_sequence) - SHUFFLE_NO_OVERLAP_AMOUNT, len(beat_sequence)):
+		last_of_previous_bag.append(beat_sequence[i])
+	var everything_else = []
+	for i in range(len(beat_sequence) - SHUFFLE_NO_OVERLAP_AMOUNT):
+		everything_else.append(beat_sequence[i])
 	
-	rest.shuffle()
+	everything_else.shuffle()
 	
 	beat_sequence = []
-	for i in range(3):
-		beat_sequence.append(rest.pop_front())
-		rest.append(last_three.pop_back())
-	rest.shuffle()
-	for i in range(len(rest)):
-		beat_sequence.append(rest.pop_back())
+	for i in range(SHUFFLE_NO_OVERLAP_AMOUNT):
+		beat_sequence.append(everything_else.pop_front())
+		everything_else.append(last_of_previous_bag.pop_back())
+	everything_else.shuffle()
+	for i in range(len(everything_else)):
+		beat_sequence.append(everything_else.pop_back())
 
 func _on_BeatKeeper_timeout():
 	activate_bag_randomizer()
