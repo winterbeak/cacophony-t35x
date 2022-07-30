@@ -60,20 +60,30 @@ func _ready():
 	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
 	$MemoryComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+	
+	lock_components()
 
 func _on_component_fail():
 	emit_signal("fail")
+
+func lock_components():
+	for component in components:
+		component.lock()
+		
+func unlock_components():
+	for component in components:
+		component.unlock()
 
 func start():
 	started = true
 	beat_sequence.shuffle()
 	beat_keeper.start(BEAT_TIME)
+	unlock_components()
 
 func stop():
 	started = false
 	beat_keeper.stop()
-	for component in components:
-		component.lock()
+	lock_components()
 
 func activate_fixed_sequence():
 	beat_sequence[current_beat].activate(ACTIVATE_TIME)
