@@ -7,7 +7,7 @@ var current_beat: int = 0
 
 onready var rows = [
 	[$QueryComponent, $ChordComponent, $SequenceComponent],
-	[$ScaleComponent, $VolumeComponent, $CountComponent, $NumberComponent, $ParityComponent, $OnceComponent],
+	[$ScaleComponent, $VolumeComponent, $CountComponent, $NumberComponent, $TwoTimingComponent, $OnceComponent],
 	[$CadenceComponent, $DirectionComponent, $AlternateComponent, $MemoryComponent]
 ]
 onready var components = []
@@ -26,7 +26,7 @@ onready var beat_sequence = [
 	$CadenceComponent,
 	$ChordComponent,
 	$DirectionComponent,
-	$ParityComponent,
+	$TwoTimingComponent,
 	$VolumeComponent
 ]
 
@@ -50,7 +50,7 @@ func _ready():
 	$VolumeComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ
 	$CountComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
-	$ParityComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+	$TwoTimingComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 	$OnceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
 	
 	# Row 3 position setting

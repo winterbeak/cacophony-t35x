@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/components/ChordComponent.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/components/ScaleComponent.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/components/VolumeComponent.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/components/ParityComponent.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/components/TwoTimingComponent.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/components/CountComponent.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/components/NumberComponent.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/components/OnceComponent.tscn" type="PackedScene" id=10]
@@ -32,7 +32,7 @@ script = ExtResource( 2 )
 
 [node name="NumberComponent" parent="." instance=ExtResource( 9 )]
 
-[node name="ParityComponent" parent="." instance=ExtResource( 7 )]
+[node name="TwoTimingComponent" parent="." instance=ExtResource( 7 )]
 
 [node name="OnceComponent" parent="." instance=ExtResource( 10 )]
 
