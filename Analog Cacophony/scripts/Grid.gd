@@ -5,10 +5,26 @@ signal fail
 var started: bool = false
 var current_beat: int = 0
 
+onready var first_row_1 = $QueryComponent
+onready var first_row_2 = $ChordComponent
+onready var first_row_3 = $SequenceComponent
+
+onready var second_row_1 = $ScaleComponent
+onready var second_row_2 = $VolumeComponent
+onready var second_row_3 = $CountComponent
+onready var second_row_4 = $NumberComponent
+onready var second_row_5 = $TwoTimingComponent
+onready var second_row_6 = $OneTimingComponent
+
+onready var third_row_1 = $CadenceComponent
+onready var third_row_2 = $DirectionComponent
+onready var third_row_3 = $AlternateComponent
+onready var third_row_4 = $MemoryComponent
+
 onready var rows = [
-	[$QueryComponent, $ChordComponent, $SequenceComponent],
-	[$ScaleComponent, $VolumeComponent, $CountComponent, $NumberComponent, $TwoTimingComponent, $OneTimingComponent],
-	[$CadenceComponent, $DirectionComponent, $AlternateComponent, $MemoryComponent]
+	[first_row_1, first_row_2, first_row_3],
+	[second_row_1, second_row_2, second_row_3, second_row_4, second_row_5, second_row_6],
+	[third_row_1, third_row_2, third_row_3, third_row_4]
 ]
 onready var components = []
 onready var beat_keeper = $BeatKeeper
@@ -40,26 +56,26 @@ func _ready():
 		component.connect_fail(self)
 	
 	# Row 1 position setting
-	$ChordComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
-	$SequenceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
+	first_row_2.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
+	first_row_3.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
 	
 	# Row 2 position setting
 	for component in rows[1]:
 		component.position.y = Constants.LIGHT_DISTANCE_VERT
 	
-	$VolumeComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ
-	$CountComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
-	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
-	$TwoTimingComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
-	$OneTimingComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
+	second_row_2.position.x = Constants.LIGHT_DISTANCE_HORIZ
+	second_row_3.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
+	second_row_4.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
+	second_row_5.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+	second_row_6.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
 	
 	# Row 3 position setting
 	for component in rows[2]:
 		component.position.y = Constants.LIGHT_DISTANCE_VERT * 2
 	
-	$DirectionComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
-	$AlternateComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
-	$MemoryComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
+	third_row_2.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
+	third_row_3.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
+	third_row_4.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 	
 	lock_components()
 
@@ -79,7 +95,6 @@ func start():
 	beat_sequence.shuffle()
 	beat_keeper.start(BEAT_TIME)
 	unlock_components()
-	$OneTimingComponent.activate(5)
 
 func stop():
 	started = false
