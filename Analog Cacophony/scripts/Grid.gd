@@ -7,7 +7,7 @@ var current_beat: int = 0
 
 onready var rows = [
 	[$QueryComponent, $ChordComponent, $SequenceComponent],
-	[$ScaleComponent, $VolumeComponent, $CountComponent, $NumberComponent, $TwoTimingComponent, $OnceComponent],
+	[$ScaleComponent, $VolumeComponent, $CountComponent, $NumberComponent, $TwoTimingComponent, $OneTimingComponent],
 	[$CadenceComponent, $DirectionComponent, $AlternateComponent, $MemoryComponent]
 ]
 onready var components = []
@@ -21,7 +21,7 @@ onready var beat_sequence = [
 	$MemoryComponent,
 	$AlternateComponent,
 	$QueryComponent,
-	$OnceComponent,
+	$OneTimingComponent,
 	$NumberComponent,
 	$CadenceComponent,
 	$ChordComponent,
@@ -51,7 +51,7 @@ func _ready():
 	$CountComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 3
 	$NumberComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 6
 	$TwoTimingComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
-	$OnceComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
+	$OneTimingComponent.position.x = Constants.LIGHT_DISTANCE_HORIZ * 9
 	
 	# Row 3 position setting
 	for component in rows[2]:
@@ -79,6 +79,7 @@ func start():
 	beat_sequence.shuffle()
 	beat_keeper.start(BEAT_TIME)
 	unlock_components()
+	$OneTimingComponent.activate(5)
 
 func stop():
 	started = false
