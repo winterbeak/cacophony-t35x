@@ -10,7 +10,7 @@ onready var first_row_2 = $ChordComponent
 onready var first_row_3 = $SequenceComponent
 
 onready var second_row_1 = $ScaleComponent
-onready var second_row_2 = $VolumeComponent
+onready var second_row_2 = $PitchComponent
 onready var second_row_3 = $CountComponent
 onready var second_row_4 = $NumberComponent
 onready var second_row_5 = $TwoTimingComponent
