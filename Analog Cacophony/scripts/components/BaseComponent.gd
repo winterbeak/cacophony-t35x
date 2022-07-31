@@ -58,6 +58,9 @@ func fail() -> void:
 func on_key_press(key: String) -> void:
 	pass
 
+func on_key_release(key: String) -> void:
+	pass
+
 # Overrideable function for things that occur when the component is deactivated
 # Note that fail() calls deactivate(), so these also run when the component is failed
 func on_deactivate() -> void:
@@ -89,3 +92,8 @@ func _process(delta: float) -> void:
 				# Otherwise, fail the component
 				else:
 					fail()
+			
+			# Occasionally, components need to know when a key is released
+			elif Input.is_action_just_released(light.key):
+				if activated:
+					on_key_release(light.key)

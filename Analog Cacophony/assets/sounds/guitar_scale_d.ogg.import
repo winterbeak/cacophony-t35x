@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/guitar_scale_d.ogg-cabe44a144dc1427ef518fed891da27c.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/guitar_scale_d.ogg"
+dest_files=[ "res://.import/guitar_scale_d.ogg-cabe44a144dc1427ef518fed891da27c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

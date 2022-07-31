@@ -2,7 +2,7 @@ extends Node2D
 
 signal win
 
-const WIN_TIME: float = 30.0
+const WIN_TIME: float = 45.0
 onready var progress_bar = $ProgressBar
 onready var win_timer = $WinTimer
 onready var grid = $Grid
