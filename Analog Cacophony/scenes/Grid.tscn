@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/components/TwoTimingComponent.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/components/CountComponent.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/components/NumberComponent.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/components/OneTimingComponent.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/components/HoldComponent.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/components/AlternateComponent.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/components/DirectionComponent.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/components/MemoryComponent.tscn" type="PackedScene" id=13]
@@ -34,7 +34,7 @@ script = ExtResource( 2 )
 
 [node name="TwoTimingComponent" parent="." instance=ExtResource( 7 )]
 
-[node name="OneTimingComponent" parent="." instance=ExtResource( 10 )]
+[node name="HoldComponent" parent="." instance=ExtResource( 10 )]
 
 [node name="CadenceComponent" parent="." instance=ExtResource( 14 )]
 

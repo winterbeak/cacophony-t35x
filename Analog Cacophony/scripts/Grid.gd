@@ -14,7 +14,7 @@ onready var second_row_2 = $PitchComponent
 onready var second_row_3 = $CountComponent
 onready var second_row_4 = $NumberComponent
 onready var second_row_5 = $TwoTimingComponent
-onready var second_row_6 = $OneTimingComponent
+onready var second_row_6 = $HoldComponent
 
 onready var third_row_1 = $CadenceComponent
 onready var third_row_2 = $DirectionComponent
