@@ -30,21 +30,7 @@ onready var components = []
 onready var beat_keeper = $BeatKeeper
 const BEAT_TIME: float = 2.3
 const ACTIVATE_TIME: float = 4.6
-onready var beat_sequence = [
-	$SequenceComponent,
-	$CountComponent,
-	$ScaleComponent,
-	$MemoryComponent,
-	$AlternateComponent,
-	$QueryComponent,
-	$OneTimingComponent,
-	$NumberComponent,
-	$CadenceComponent,
-	$ChordComponent,
-	$DirectionComponent,
-	$TwoTimingComponent,
-	$VolumeComponent
-]
+onready var beat_sequence = []
 
 func _ready():
 	for row in rows:
@@ -77,6 +63,9 @@ func _ready():
 	third_row_3.position.x = Constants.LIGHT_DISTANCE_HORIZ * 4
 	third_row_4.position.x = Constants.LIGHT_DISTANCE_HORIZ * 7
 	
+	beat_sequence = components.duplicate()
+	beat_sequence.shuffle()
+	
 	lock_components()
 
 func _on_component_fail():
@@ -100,11 +89,6 @@ func stop():
 	started = false
 	beat_keeper.stop()
 	lock_components()
-
-func activate_fixed_sequence():
-	beat_sequence[current_beat].activate(ACTIVATE_TIME)
-	current_beat += 1
-	current_beat %= len(beat_sequence)
 
 # If you use this sequence, make sure to shuffle the bag in start()
 func activate_bag_randomizer():
