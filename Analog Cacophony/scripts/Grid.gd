@@ -9,7 +9,7 @@ onready var first_row_1 = $QueryComponent
 onready var first_row_2 = $ChordComponent
 onready var first_row_3 = $SequenceComponent
 
-onready var second_row_1 = $ScaleComponent
+onready var second_row_1 = $ClockComponent
 onready var second_row_2 = $TwoNotesComponent
 onready var second_row_3 = $NumberComponent
 onready var second_row_4 = $CountComponent
