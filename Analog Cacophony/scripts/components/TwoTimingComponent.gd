@@ -2,7 +2,7 @@ extends "res://scripts/components/BaseComponent.gd"
 
 var current_beep: int = 0
 
-const BEEP_TIME: float = 0.3
+const BEEP_TIME: float = 0.5
 onready var next_beep_timer: Timer = $NextBeepTimer
 onready var tick_sound = $Tick
 onready var deactivate_sound = $Deactivate
