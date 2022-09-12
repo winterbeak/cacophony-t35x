@@ -6,7 +6,7 @@ var current_note: int = 0
 const FINAL_NOTE: int = 6  # Final note played without player input
 const MAX_VOLUME: int = 0
 const FINAL_NOTE_VOLUME: int = 0
-export var note_time: float = 0.9
+export var note_time: float = 1.0
 onready var note_timer: Timer = $NoteTimer
 
 onready var notes: Array = [$Tick1, $Tick2, $Tick1, $Tick2, $Tick1, $Tick2, $Now, $Tick1]
