@@ -28,8 +28,8 @@ onready var rows = [
 ]
 onready var components = []
 onready var beat_keeper = $BeatKeeper
-const BEAT_TIME: float = 2.3
-const ACTIVATE_TIME: float = 4.6
+const BEAT_TIME: float = 2.7
+const ACTIVATE_TIME: float = 5.4
 onready var beat_sequence = []
 
 func _ready():
