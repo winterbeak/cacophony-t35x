@@ -28,4 +28,8 @@ stream = ExtResource( 6 )
 [node name="SecondNoteTimer" type="Timer" parent="." index="7"]
 one_shot = true
 
+[node name="LightTurnOnTimer" type="Timer" parent="." index="8"]
+one_shot = true
+
 [connection signal="timeout" from="SecondNoteTimer" to="." method="_on_SecondNoteTimer_timeout"]
+[connection signal="timeout" from="LightTurnOnTimer" to="." method="_on_LightTurnOnTimer_timeout"]
