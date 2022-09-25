@@ -46,6 +46,9 @@ func turn_off() -> void:
 func flash_red() -> void:
 	turn_color(LIGHT_COLOR.RED, RED_TIME)
 
+func flash(time: float) -> void:
+	turn_color(LIGHT_COLOR.YELLOW, time)
+
 func set_light_opacity(opacity: float) -> void:
 	light_opacity = opacity
 

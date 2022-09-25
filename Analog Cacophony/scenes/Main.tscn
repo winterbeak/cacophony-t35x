@@ -7,7 +7,27 @@
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="PurpleBackground" type="ColorRect" parent="."]
+margin_left = -616.0
+margin_top = -374.0
+margin_right = 1950.0
+margin_bottom = 1331.0
+color = Color( 0.713726, 0, 1, 1 )
+
 [node name="Cacophony" parent="." instance=ExtResource( 1 )]
 position = Vector2( 191, 156 )
 
 [node name="AudioInstruction" parent="." instance=ExtResource( 3 )]
+
+[node name="FadeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FlashTransitionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FlashTimer" type="Timer" parent="."]
+
+[connection signal="win" from="Cacophony" to="." method="_on_Cacophony_win"]
+[connection signal="timeout" from="FadeTimer" to="." method="_on_FadeTimer_timeout"]
+[connection signal="timeout" from="FlashTransitionTimer" to="." method="_on_FlashTransitionTimer_timeout"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_FlashTimer_timeout"]

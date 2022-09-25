@@ -126,5 +126,9 @@ func set_light_opacity(opacity: float):
 	for component in components:
 		component.set_light_opacity(opacity)
 
+func flash(time: float):
+	for component in components:
+		component.flash(time)
+
 func _on_BeatKeeper_timeout():
 	activate_bag_randomizer()

@@ -77,6 +77,10 @@ func connect_fail(target: Object) -> void:
 func set_light_opacity(opacity: float) -> void:
 	for light in lights:
 		light.set_light_opacity(opacity)
+		
+func flash(time: float) -> void:
+	for light in lights:
+		light.flash(time)
 
 func _process(delta: float) -> void:
 	if not locked:

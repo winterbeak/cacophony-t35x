@@ -8,7 +8,7 @@ onready var win_timer = $WinTimer
 onready var grid = $Grid
 
 var started: bool = false
-var blind_mode: bool = true
+var blind_mode: bool = false
 var BLIND_MODE_START_FADE: float = 5.0
 var BLIND_MODE_END_FADE: float = 15.0
 
@@ -17,6 +17,9 @@ func start() -> void:
 	started = true
 	grid.start()
 	win_timer.start(WIN_TIME)
+
+func flash_grid(time: float):
+	grid.flash(time)
 
 # When a component on the grid fails, reset the win timer
 func _on_Grid_fail() -> void:
