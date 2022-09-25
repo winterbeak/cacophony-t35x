@@ -20,6 +20,7 @@ enum LIGHT_COLOR {OFF, YELLOW, RED}
 
 var pressed: bool = false
 var color: int = LIGHT_COLOR.OFF
+var light_opacity: float = 1.0
 
 func label_text() -> String:
 	if key == "S":
@@ -44,6 +45,9 @@ func turn_off() -> void:
 # Turns the light red for an amount of time determined by RED_TIME.
 func flash_red() -> void:
 	turn_color(LIGHT_COLOR.RED, RED_TIME)
+
+func set_light_opacity(opacity: float) -> void:
+	light_opacity = opacity
 
 # Turns the light a color for a certain amount of time.
 # If the time is negative, the light is turned on indefinitely.
@@ -73,7 +77,7 @@ func _process(delta):
 	if color == LIGHT_COLOR.OFF:
 		lit_sprite.modulate.a = 0.0
 	else:
-		lit_sprite.modulate.a = 1.0
+		lit_sprite.modulate.a = light_opacity
 	if pressed:
 		unlit_sprite.texture = tex_pressed
 		if color == LIGHT_COLOR.YELLOW:
