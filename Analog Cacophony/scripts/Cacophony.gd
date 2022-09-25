@@ -27,6 +27,8 @@ func _on_Grid_fail() -> void:
 
 # If we last WIN_TIME amount of time without a failure, win
 func _on_WinTimer_timeout() -> void:
+	started = false
+	progress_bar.set_fraction(1.0)
 	grid.stop()
 	emit_signal("win")
 
