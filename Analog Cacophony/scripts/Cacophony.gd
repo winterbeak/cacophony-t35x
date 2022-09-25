@@ -8,6 +8,9 @@ onready var win_timer = $WinTimer
 onready var grid = $Grid
 
 var started: bool = false
+var blind_mode: bool = true
+var BLIND_MODE_START_FADE: float = 5.0
+var BLIND_MODE_END_FADE: float = 15.0
 
 # Starts the device
 func start() -> void:
@@ -28,3 +31,12 @@ func _on_WinTimer_timeout() -> void:
 func _process(delta) -> void:
 	if started:
 		progress_bar.set_fraction(1 - win_timer.time_left/WIN_TIME)
+	if blind_mode:
+		var time_elapsed = WIN_TIME - win_timer.time_left
+		if time_elapsed < BLIND_MODE_START_FADE:
+			grid.set_light_opacity(1.0)
+		elif time_elapsed > BLIND_MODE_END_FADE:
+			grid.set_light_opacity(0.0)
+		else:
+			var opacity = 1.0 - (time_elapsed - BLIND_MODE_START_FADE) / (BLIND_MODE_END_FADE - BLIND_MODE_START_FADE)
+			grid.set_light_opacity(opacity)

@@ -74,6 +74,10 @@ func on_fail() -> void:
 func connect_fail(target: Object) -> void:
 	connect("fail", target, "_on_component_fail")
 
+func set_light_opacity(opacity: float) -> void:
+	for light in lights:
+		light.set_light_opacity(opacity)
+
 func _process(delta: float) -> void:
 	if not locked:
 		for light in lights:

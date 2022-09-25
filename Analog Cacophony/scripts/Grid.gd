@@ -122,5 +122,9 @@ func shuffle_bag():
 	for i in range(len(everything_else)):
 		beat_sequence.append(everything_else.pop_back())
 
+func set_light_opacity(opacity: float):
+	for component in components:
+		component.set_light_opacity(opacity)
+
 func _on_BeatKeeper_timeout():
 	activate_bag_randomizer()
