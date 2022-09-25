@@ -5,17 +5,17 @@ onready var audio_instruction = $AudioInstruction
 
 onready var flash_timer = $FlashTimer
 var FLASH_TIME: float = 0.165
-var LAST_FLASH_TIME: float = 0.75
+var LAST_FLASH_TIME: float = 1.0
 var FLASH_INTERVAL: float = 0.203
 var flash_count: int = 0
 var TOTAL_FLASHES: int = 3
 
 onready var flash_transition_timer = $FlashTransitionTimer
-var FLASH_TRANSITION_TIME: float = 5.0
+var FLASH_TRANSITION_TIME: float = 3.5
 onready var blind_fade_timer = $FadeTimer
 var FADE_TIME: float = 4.565
 onready var post_fade_timer = $PostFadeTimer
-var POST_FADE_TIME: float = 2.0
+var POST_FADE_TIME: float = 3.5
 
 onready var purple_background = $PurpleBackground
 
