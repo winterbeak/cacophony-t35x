@@ -21,7 +21,7 @@ func _ready() -> void:
 	randomize()
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("space"):
+	if Input.is_action_just_pressed("space") and audio_instruction.visible == true:
 		audio_instruction.visible = false
 		cacophony.start()
 	
