@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 func _on_Cacophony_win():
 	cacophony.flash_grid(FLASH_TIME)
-	flash_timer.start()
+	flash_timer.start(FLASH_INTERVAL)
 	flash_count += 1
 
 func _on_FlashTimer_timeout():
