@@ -13,15 +13,19 @@ var TOTAL_FLASHES: int = 3
 onready var flash_transition_timer = $FlashTransitionTimer
 var FLASH_TRANSITION_TIME: float = 5.0
 onready var blind_fade_timer = $FadeTimer
-var FADE_TIME: float = 4.0
+var FADE_TIME: float = 4.565
+onready var post_fade_timer = $PostFadeTimer
+var POST_FADE_TIME: float = 2.0
 
 onready var purple_background = $PurpleBackground
 
 onready var win_sound = $WinSound
+onready var drain_sound = $DrainSound
 
 func _ready() -> void:
 	purple_background.color.a = 0.0
 	win_sound.volume_db = -7
+	drain_sound.volume_db = -4
 	randomize()
 
 func _process(delta: float) -> void:
@@ -54,8 +58,13 @@ func _on_FlashTimer_timeout():
 func _on_FlashTransitionTimer_timeout():
 	if not cacophony.blind_mode:
 		blind_fade_timer.start(FADE_TIME)
+		drain_sound.play()
 
 func _on_FadeTimer_timeout():
+	post_fade_timer.start(POST_FADE_TIME)
+	cacophony.progress_bar.set_fraction(0.0)
+
+func _on_PostFadeTimer_timeout():
 	purple_background.color.a = 1.0
 	cacophony.blind_mode = true
 	cacophony.start()
