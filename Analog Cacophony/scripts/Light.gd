@@ -12,9 +12,9 @@ var tex_red_unpressed: Texture = preload("res://assets/images/button_red_unpress
 var tex_red_pressed: Texture = preload("res://assets/images/button_red_pressed.png")
 
 onready var timer: Timer = $Timer
-onready var sprite: Sprite = $Sprite
+onready var unlit_sprite: Sprite = $UnlitSprite
+onready var lit_sprite: Sprite = $LitSprite
 onready var key_text: Label = $KeyText
-
 
 enum LIGHT_COLOR {OFF, YELLOW, RED}
 
@@ -31,7 +31,8 @@ func label_text() -> String:
 
 func _ready() -> void:
 	key_text.text = label_text()
-	sprite.texture = tex_unpressed
+	unlit_sprite.texture = tex_unpressed
+	lit_sprite.modulate.a = 0.0
 	turn_off()
 
 func turn_on() -> void:
@@ -63,29 +64,28 @@ func release() -> void:
 	pressed = false
 	key_text.rect_position.y = 10
 
-func current_sprite() -> Texture:
-	if pressed:
-		if color == LIGHT_COLOR.YELLOW:
-			return tex_yellow_pressed
-		elif color == LIGHT_COLOR.RED:
-			return tex_red_pressed
-		else:
-			return tex_pressed
-	else:
-		if color == LIGHT_COLOR.YELLOW:
-			return tex_yellow_unpressed
-		elif color == LIGHT_COLOR.RED:
-			return tex_red_unpressed
-		else:
-			return tex_unpressed
-
 func _process(delta):
 	if Input.is_action_just_pressed(key):
 		self.press()
 	elif Input.is_action_just_released(key):
 		self.release()
 	
-	sprite.texture = current_sprite()
+	if color == LIGHT_COLOR.OFF:
+		lit_sprite.modulate.a = 0.0
+	else:
+		lit_sprite.modulate.a = 1.0
+	if pressed:
+		unlit_sprite.texture = tex_pressed
+		if color == LIGHT_COLOR.YELLOW:
+			lit_sprite.texture = tex_yellow_pressed
+		elif color == LIGHT_COLOR.RED:
+			lit_sprite.texture = tex_red_pressed
+	else:
+		unlit_sprite.texture = tex_unpressed
+		if color == LIGHT_COLOR.YELLOW:
+			lit_sprite.texture = tex_yellow_unpressed
+		elif color == LIGHT_COLOR.RED:
+			lit_sprite.texture = tex_red_unpressed
 
 # Called when the timer runs out.
 func _on_Timer_timeout():

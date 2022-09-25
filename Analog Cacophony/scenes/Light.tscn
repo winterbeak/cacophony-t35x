@@ -15,7 +15,10 @@ script = ExtResource( 1 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="UnlitSprite" type="Sprite" parent="."]
+centered = false
+
+[node name="LitSprite" type="Sprite" parent="."]
 centered = false
 
 [node name="Timer" type="Timer" parent="."]
