@@ -37,11 +37,14 @@ func _process(delta) -> void:
 	if started:
 		progress_bar.set_fraction(1 - win_timer.time_left/WIN_TIME)
 	if blind_mode:
-		var time_elapsed = WIN_TIME - win_timer.time_left
-		if time_elapsed < BLIND_MODE_START_FADE:
-			grid.set_light_opacity(1.0)
-		elif time_elapsed > BLIND_MODE_END_FADE:
-			grid.set_light_opacity(0.0)
+		if started:
+			var time_elapsed = WIN_TIME - win_timer.time_left
+			if time_elapsed < BLIND_MODE_START_FADE:
+				grid.set_light_opacity(1.0)
+			elif time_elapsed > BLIND_MODE_END_FADE:
+				grid.set_light_opacity(0.0)
+			else:
+				var opacity = 1.0 - (time_elapsed - BLIND_MODE_START_FADE) / (BLIND_MODE_END_FADE - BLIND_MODE_START_FADE)
+				grid.set_light_opacity(opacity)
 		else:
-			var opacity = 1.0 - (time_elapsed - BLIND_MODE_START_FADE) / (BLIND_MODE_END_FADE - BLIND_MODE_START_FADE)
-			grid.set_light_opacity(opacity)
+			grid.set_light_opacity(1.0)
