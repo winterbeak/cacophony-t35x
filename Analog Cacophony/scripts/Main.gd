@@ -5,6 +5,7 @@ onready var audio_instruction = $AudioInstruction
 onready var audio_instruction_label = $AudioInstruction/Label
 onready var audio_instruction_fade_in = $AudioInstructionFadeIn
 onready var audio_instruction_fade_out = $AudioInstructionFadeOut
+var audio_instruction_dismissed: bool = false
 
 onready var final_fade_out = $FinalFadeOut
 onready var credits_fade_in = $CreditsFadeIn
@@ -48,7 +49,8 @@ func _ready() -> void:
 	randomize()
 
 func _process(delta: float) -> void:
-	if frame_after_splash and Input.is_action_just_pressed("space") and audio_instruction.visible == true:
+	if not audio_instruction_dismissed and frame_after_splash and Input.is_action_just_pressed("space"):
+		audio_instruction_dismissed = true
 		audio_instruction_fade_out.start()
 		cacophony.start()
 	
