@@ -2,6 +2,9 @@ extends Node2D
 
 onready var cacophony = $Cacophony
 onready var audio_instruction = $AudioInstruction
+onready var audio_instruction_label = $AudioInstruction/Label
+onready var audio_instruction_fade_in = $AudioInstructionFadeIn
+onready var audio_instruction_fade_out = $AudioInstructionFadeOut
 
 onready var flash_timer = $FlashTimer
 var FLASH_TIME: float = 0.165
@@ -22,16 +25,27 @@ onready var purple_background = $PurpleBackground
 onready var win_sound = $WinSound
 onready var drain_sound = $DrainSound
 
+var splash_done: bool = false
+var frame_after_splash: bool = false
+
 func _ready() -> void:
 	purple_background.color.a = 0.0
 	win_sound.volume_db = -7
 	drain_sound.volume_db = -4
+	
+	audio_instruction_label.modulate.a = 0
+	audio_instruction_fade_in.interpolate_property(audio_instruction_label, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, 1), 1.5)
+	audio_instruction_fade_out.interpolate_property(audio_instruction, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.2)
 	randomize()
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("space") and audio_instruction.visible == true:
-		audio_instruction.visible = false
+	if frame_after_splash and Input.is_action_just_pressed("space") and audio_instruction.visible == true:
+		audio_instruction_fade_out.start()
 		cacophony.start()
+	
+	# Avoid consuming the same spacebar input if space is used to skip the splash screen
+	if splash_done:
+		frame_after_splash = true
 	
 	if not blind_fade_timer.is_stopped():
 		var percentage_done = 1.0 - (blind_fade_timer.time_left / FADE_TIME)
@@ -68,3 +82,7 @@ func _on_PostFadeTimer_timeout():
 	purple_background.color.a = 1.0
 	cacophony.blind_mode = true
 	cacophony.start()
+
+func _on_SplashScreen_done():
+	splash_done = true
+	audio_instruction_fade_in.start()

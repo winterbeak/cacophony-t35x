@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Cacophony.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/AudioInstruction.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sounds/win.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/sounds/drain.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scenes/SplashScreen.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -20,6 +21,10 @@ color = Color( 0.713726, 0, 1, 1 )
 position = Vector2( 191, 156 )
 
 [node name="AudioInstruction" parent="." instance=ExtResource( 3 )]
+
+[node name="AudioInstructionFadeIn" type="Tween" parent="."]
+
+[node name="AudioInstructionFadeOut" type="Tween" parent="."]
 
 [node name="PostFadeTimer" type="Timer" parent="."]
 one_shot = true
@@ -40,8 +45,11 @@ stream = ExtResource( 5 )
 position = Vector2( 640, 360 )
 stream = ExtResource( 4 )
 
+[node name="SplashScreen" parent="." instance=ExtResource( 6 )]
+
 [connection signal="win" from="Cacophony" to="." method="_on_Cacophony_win"]
 [connection signal="timeout" from="PostFadeTimer" to="." method="_on_PostFadeTimer_timeout"]
 [connection signal="timeout" from="FadeTimer" to="." method="_on_FadeTimer_timeout"]
 [connection signal="timeout" from="FlashTransitionTimer" to="." method="_on_FlashTransitionTimer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_FlashTimer_timeout"]
+[connection signal="done" from="SplashScreen" to="." method="_on_SplashScreen_done"]
