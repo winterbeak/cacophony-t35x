@@ -31,6 +31,10 @@ func start() -> void:
 func on_deactivate() -> void:
 	lights[0].turn_off()
 	hold_timer.stop()
+	
+	# Fade out the buildup sound
+	buildup_fadeout.interpolate_property(buildup_sound, "volume_db", BUILDUP_VOLUME, -60, 0.05)
+	buildup_fadeout.start()
 
 func on_key_press(key: String) -> void:
 	hold_timer.start(HOLD_TIME)
@@ -45,8 +49,6 @@ func on_key_release(key: String) -> void:
 		deactivate()
 	else:
 		fail()
-		buildup_fadeout.interpolate_property(buildup_sound, "volume_db", BUILDUP_VOLUME, -60, 0.05)
-		buildup_fadeout.start()
 
 func _on_HoldTimer_timeout():
 	release_voice.play()

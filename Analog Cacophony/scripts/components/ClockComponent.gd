@@ -48,6 +48,10 @@ func play_note(note_num: int) -> void:
 func fade_out_note(note_num: int) -> void:
 	note_tweens[note_num].start()
 
+func on_deactivate() -> void:
+	note_timer.stop()
+	timer.stop()
+
 func on_fail() -> void:
 	# Fade out current note on fail
 	fade_out_note(current_note)
