@@ -16,7 +16,10 @@ _global_script_class_icons={
 
 config/name="Analog Cacophony"
 run/main_scene="res://scenes/Main.tscn"
+boot_splash/image="res://assets/images/empty_image.png"
+boot_splash/bg_color=Color( 0, 0.145098, 0.172549, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://assets/images/icon.ico"
 
 [autoload]
 

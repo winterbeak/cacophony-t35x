@@ -2,12 +2,12 @@
 
 [ext_resource path="res://boon-700.otf" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=2]
-default_font = SubResource( 1 )
+default_font = SubResource( 3 )
 
 [node name="AudioInstruction" type="Node2D"]
 
