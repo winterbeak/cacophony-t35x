@@ -75,22 +75,23 @@ centered = false
 
 [node name="Animation" type="AnimatedSprite" parent="Logo"]
 frames = SubResource( 12 )
-frame = 1
+frame = 10
 playing = true
 centered = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = 264.0
-margin_top = 275.0
-margin_right = 969.0
-margin_bottom = 684.0
+margin_left = 265.0
+margin_top = 213.0
+margin_right = 970.0
+margin_bottom = 622.0
 theme = SubResource( 14 )
 text = "Testing:
 Avery, Some other people that I'm waiting to get back to me about what names they want me to use
 
 Sounds:
 Ableton Live Lite 10 Samples, Alpha-5, BFXR, Breviceps, I_am_Jecc, InspectorJ, Juan_Merie_Venter, Kievinay, Lindsayanng, Me, mgamabile, mohawkade, natemarler, neopolitansixth, S. Christian Collins, sandyrb, ScreamStudio, Sheyvan, StavSounds, steshystesh, Tetrisrocker, timgormly, Wikimedia Public Domain
-Details and links in \"Sounds Used.txt\" on Github."
+
+Links for sound credits can be found in \"Sounds Used.txt\" in the source code."
 align = 1
 valign = 1
 autowrap = true
