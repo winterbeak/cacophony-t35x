@@ -1,26 +1,31 @@
+Query beeps - BFXR
+Violin - S. Christian Collins - https://schristiancollins.com/generaluser.php
 Water fill - Kievinay - https://freesound.org/people/Kievinay/sounds/512411/
 Water activate - InspectorJ - https://freesound.org/people/InspectorJ/sounds/352104/
-Piano and violin - https://schristiancollins.com/generaluser.php
-Drums and counting synth and guitar - Ableton Live Lite 10 Samples
-Fail sound - Breviceps - https://freesound.org/people/Breviceps/sounds/493163/
-Memory/Simon says - Wikimedia Public Domain - https://commons.wikimedia.org/wiki/File:Dtmf1.ogg and https://commons.wikimedia.org/wiki/File:Dtmf5.ogg and https://commons.wikimedia.org/wiki/File:Dtmf9.ogg
+Wait/now voices - Me
+Clock tick - Tetrisrocker - https://freesound.org/people/Tetrisrocker/sounds/458627/
+Guitar - Ableton Live Lite 10 Samples
 Numbers - Lindsayanng - https://freesound.org/people/Lindsayanng/sounds/71561/#comments
 Numbers press sound - timgormly - https://freesound.org/people/timgormly/sounds/162804/
-Directions - Alpha-5
-Directions success - StavSounds - https://freesound.org/people/StavSounds/sounds/546083/
-Record scratches - G_M_D_THREE - https://freesound.org/people/G_M_D_THREE/sounds/454735/ and https://freesound.org/people/G_M_D_THREE/sounds/454731/
-Query beeps - BFXR
+Counting beeps - Ableton Live Lite 10 Samples
 Glass tap - I_am_Jecc - https://freesound.org/people/I_am_Jecc/sounds/628774/
-Glass break - mgamabile and natemarler - https://freesound.org/people/mgamabile/sounds/440773/ and https://freesound.org/people/natemarler/sounds/338693/
-Dog toy - ScreamStudio - https://freesound.org/people/ScreamStudio/sounds/392617/
-Dog bark - Juan_Merie_Venter - https://freesound.org/people/Juan_Merie_Venter/sounds/327666/
+Glass break - mgamabile - https://freesound.org/people/mgamabile/sounds/440773/
+Glass break - natemarler - https://freesound.org/people/natemarler/sounds/338693/
 Hold buildup - neopolitansixth - https://freesound.org/people/neopolitansixth/sounds/579628/
 Hold buildup start - Sheyvan - https://freesound.org/people/Sheyvan/sounds/570007/
 Hold buildup start - Ableton Live Lite 10 Samples
 Hold laser - steshystesh - https://freesound.org/people/steshystesh/sounds/336558/
 Hold laser - mohawkade - https://freesound.org/people/mohawkade/sounds/351307/
-Hold voices - me
-Wait/now - me
-Clock - Tetrisrocker - https://freesound.org/people/Tetrisrocker/sounds/458627/
+Hold/Release voices - Me
+Dog toy - ScreamStudio - https://freesound.org/people/ScreamStudio/sounds/392617/
+Dog bark - Juan_Merie_Venter - https://freesound.org/people/Juan_Merie_Venter/sounds/327666/
+Directions - Alpha-5 - https://www.twitch.tv/mysteryfunhouse/clip/ChillyCarefulFlyDxCat
+Directions success - StavSounds - https://freesound.org/people/StavSounds/sounds/546083/
+Drums - Ableton Live Lite 10 Samples
+Memory/Simon says - Wikimedia Public Domain - https://commons.wikimedia.org/wiki/File:Dtmf1.ogg and https://commons.wikimedia.org/wiki/File:Dtmf5.ogg and https://commons.wikimedia.org/wiki/File:Dtmf9.ogg
+Fail sound - Breviceps - https://freesound.org/people/Breviceps/sounds/493163/
 Win ding - InspectorJ - https://freesound.org/people/InspectorJ/sounds/411089/
 Bar draining after win - sandyrb - https://freesound.org/people/sandyrb/sounds/86290/
+
+UNUSED SOUNDS
+Record scratching - G_M_D_THREE - https://freesound.org/people/G_M_D_THREE/sounds/454735/ and https://freesound.org/people/G_M_D_THREE/sounds/454731/
