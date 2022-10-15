@@ -4,6 +4,8 @@ onready var animation = $Logo/Animation
 onready var text = $Logo/Text
 onready var logo = $Logo
 
+onready var credits_text = $Label
+
 const LOGO_NAME_GAP: float = 6.0
 const SCALE: float = 4.0
 
@@ -18,7 +20,9 @@ func _ready():
 	var logo_height: float = (animation_size.y + 1)*SCALE
 
 	animation.position.x = screen_size.x / 2 - logo_width / 2
-	animation.position.y = screen_size.y / 2 - logo_height / 2
+	animation.position.y = screen_size.y*(2.0/5.0) - logo_height / 2
 	
 	text.position.x = animation.position.x + (animation_size.x + LOGO_NAME_GAP)*SCALE
 	text.position.y = animation.position.y - 3*SCALE
+	
+	credits_text.rect_position.x = screen_size.x / 2 - credits_text.rect_size.x / 2
