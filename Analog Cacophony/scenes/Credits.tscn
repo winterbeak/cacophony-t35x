@@ -75,7 +75,7 @@ centered = false
 
 [node name="Animation" type="AnimatedSprite" parent="Logo"]
 frames = SubResource( 12 )
-frame = 10
+frame = 8
 playing = true
 centered = false
 
@@ -86,7 +86,7 @@ margin_right = 970.0
 margin_bottom = 622.0
 theme = SubResource( 14 )
 text = "Testing:
-Avery, Some other people that I'm waiting to get back to me about what names they want me to use
+Andrew Beach, Avery Hiebert
 
 Sounds:
 Ableton Live Lite 10 Samples, Alpha-5, BFXR, Breviceps, I_am_Jecc, InspectorJ, Juan_Merie_Venter, Kievinay, Lindsayanng, Me, mgamabile, mohawkade, natemarler, neopolitansixth, S. Christian Collins, sandyrb, ScreamStudio, Sheyvan, StavSounds, steshystesh, Tetrisrocker, timgormly, Wikimedia Public Domain
